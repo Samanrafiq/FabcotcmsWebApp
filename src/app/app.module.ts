@@ -3,12 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { ConfigurationComponent } from './configuration/configuration.component';
 import { BuyerComponent } from './configuration/sub-list/buyer/buyer.component';
 import { SellerComponent } from './configuration/sub-list/seller/seller.component';
-
+import {HttpClientModule} from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
 const appRoutes: Routes = [
   {path: 'home', component: UserHomeComponent},
   {path: 'buyer', component: BuyerComponent},
@@ -32,7 +33,12 @@ const appRoutes: Routes = [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    ReactiveFormsModule,
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes),
+    ToastrModule.forRoot({
+      progressBar: true
+    }),
   ],
 
 
