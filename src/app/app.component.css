@@ -1,0 +1,58 @@
+head{
+     background-color: black;
+}
+
+div{
+    
+    font-weight:100;
+}
+
+.bar ul li a i
+{
+margin-right: 10px;
+}
+
+
+#menu-bg{
+
+    background-color:#1ab394;
+    border-radius: 5px;
+
+}
+
+
+.welcome{
+    font-size:13px;
+    color:#636e65;
+    margin-left:auto;
+}
+
+#search,button{
+    font-size:13px;
+    background-color:white;
+
+}
+
+#search-btn{
+    font-size:13px;
+    background-color:white;
+}
+
+.nav-icons ul li button i{
+    font-size:16px;
+}
+
+.welcome span{
+
+    font-size:13px;
+    color:white;
+    background-color:#2596be;
+    border-radius:3px;
+    padding:1px 5px;
+    text-align:center;
+}
+
+.sublist{
+    padding-left: 15px;
+    padding: 10px;
+}

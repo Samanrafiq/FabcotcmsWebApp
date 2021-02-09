@@ -1,0 +1,172 @@
+h2{
+    color: #575d63;
+    font-weight:100;
+}
+
+.topbox-1
+{
+    background-color: #1ab394;
+    height: 150px;
+    text-align: center;
+    color: aliceblue;
+    border-radius: 3px;
+}
+
+.topbox-2
+{
+    background-color:#e67e22;
+    height: 150px;
+    text-align: center;
+    color: aliceblue;
+    border-radius: 3px;
+}
+
+.topbox-3
+{
+    background-color: #575d63;
+    height: 150px;
+    text-align: center;
+    color: aliceblue;
+    border-radius: 3px;
+}
+
+.topbox-4
+{
+    background-color: #8b008b;
+    height: 150px;
+    text-align: center;
+    color: aliceblue;
+    border-radius: 3px;
+}
+
+.topbox-margin-top-text{
+
+    
+    font-size: 20px;
+    padding-top:5px ;
+    color: aliceblue;
+}
+
+.topbox-margin-mid-text{
+    font-size: 65px;
+    margin-top: -10px;
+}
+
+.topbox-margin-end-text{
+    font-size: 13px;
+    margin-top: -10px;
+
+}
+
+.midbox
+{
+    background-color:aliceblue;
+    height: 150px;
+    text-align: left;
+    color: #575d63;
+    margin-top: 20px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-width: 2.5px 0px 1.7px 0px;
+    padding: 5px;
+    padding-left: 9px;
+    height: 100px;
+}
+
+.midbox-icon
+{   
+    float:right;
+    font-size: 40px;
+    padding: 10px;
+
+}
+
+.midbox-bd-1{
+    
+    border-color: #1e83c4;
+}
+
+.midbox-bd-2{
+    
+    border-color: #59e0e2;
+}
+
+.midbox-bd-3{
+    
+    border-color: #ff7f8c;
+}
+.midbox-bd-4{
+    
+    border-color: #fca952;
+}
+
+.midbox-mid-text-1{
+    font-size: 30px; 
+    color: #1e83c4;
+}
+
+.midbox-mid-text-2{
+    border-color: #78dcdd;
+    font-size: 30px; 
+    color: #78dcdd;
+}
+
+.midbox-mid-text-3{
+    border-color:#f497a1;
+    font-size: 30px; 
+    color:#f497a1;
+}
+
+.midbox-mid-text-4{
+    border-color: #fbcc99;
+    font-size: 30px; 
+    color: #fbcc99;
+}
+
+.midbox-end-text{
+    font-size: 11px;
+}
+
+.endbox-1{
+
+    height: 170px;
+    border-radius: 3px;
+    margin-top: 30px;
+    background-color: #34495e;
+  
+}
+
+.endbox-2{
+
+    height: 170px;
+    border-radius: 3px;
+    margin-top: 30px;
+    background-color:#008a8a;
+  
+}
+
+.endbox-3{
+
+    height: 170px;
+    border-radius: 3px;
+    margin-top: 30px;
+    background-color: #c0392b;
+   
+}
+
+.list{
+    color: aliceblue;
+    list-style-type: circle;
+    font-size: 11px;
+    padding-left: 50px;
+    margin-top: 20px;
+}
+
+.list2{
+    color: aliceblue;
+    font-size: 10px;
+    float: right;
+    margin-right: 20px;  
+}
+
+

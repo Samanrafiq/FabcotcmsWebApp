@@ -1,0 +1,131 @@
+<div class="content-wrapper">
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
+    Edit From Here
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+
+          <h5 class="modal-title">
+            <i class="far fa-edit"></i>
+            Edit Buyer
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <form #userForm="ngForm">
+          <div class="form-group row"> 
+            <label for="code" class="col-sm-3 col-form-label">Buyer Code</label>
+            <div class="col-sm-9">
+              <input required id="code" type="text" 
+                     class="form-control" placeholder="Code"
+                     name="buyerCode" [(ngModel)]="buyerCode" buyerCode="ngModel">  
+            </div>
+          </div>
+         
+          <div class="form-group row" >
+            <label for="name" class="col-sm-3 col-form-label">Buyer Name</label>
+            <div class="col-sm-9">
+              <input required type="text" class="form-control" id="name" placeholder="Name">
+            </div>
+          </div>
+        </form>
+
+          <div class="form-group row">
+            <label for="bill-address" class="col-sm-3 col-form-label">Billing Address</label>
+            <div class="col-sm-9">
+              <textarea class="form-control" id="bill-address" rows="3"></textarea>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="delivery-address" class="col-sm-3 col-form-label">Delivery Address</label>
+            <div class="col-sm-9">
+              <textarea class="form-control" id="delivery-address" rows="3"></textarea>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="country" class="col-sm-3 col-form-label">Country</label>
+            <div class="col-sm-9">
+              <select id="country" class="form-control">
+                <option> Sweden</option>
+                <option>Sweden</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-3 col-form-label">Contact Nos.</label>
+            <div class="col-sm-4">
+              <input type="email" class="form-control" id="inputEmail3" placeholder="Primary Contact No.">
+            </div>
+            <div class="col-sm-4 ml-2">
+              <input type="email" class="form-control" id="inputEmail3" placeholder="Other Contact No.">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-3 col-form-label">Fax Number</label>
+            <div class="col-sm-9">
+              <input type="email" class="form-control" id="inputEmail3" placeholder="Buyer Fax No.">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-3 col-form-label">NTN/GST Nos.</label>
+            <div class="col-sm-4">
+              <input type="email" class="form-control" id="inputEmail3" placeholder="NTN No.">
+            </div>
+            <div class="col-sm-4 ml-2">
+              <input type="email" class="form-control" id="inputEmail3" placeholder="GST No.">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-3 col-form-label">Buyer Details</label>
+            <div class="col-sm-9">
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+            </div>
+          </div>
+
+
+
+          <div class="form-check form-check-inline">
+            <input class="form-check-input check-btn" type="checkbox" >
+            <label class="form-check-label" >Parent Buyer</label>
+          </div>
+
+
+
+          <div class="form-group row">
+            <label for="inputEmail3" class="col-sm-3 col-form-label">Parent Buyer</label>
+            <div class="col-sm-9">
+              <select class="form-control">
+                <option> Ali</option>
+                <option> Ali</option>
+                <option> Ali</option>
+                <option> Ali</option>
+                <option> Ali</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn button-save">Update Buyer</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
