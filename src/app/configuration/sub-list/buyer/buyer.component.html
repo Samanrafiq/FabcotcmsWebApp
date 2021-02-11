@@ -10,7 +10,6 @@
     <div class="modal-dialog modal-dialog-scrollable" role="document">
       <div class="modal-content">
         <div class="modal-header">
-
           <h5 class="modal-title">
             <i class="far fa-edit"></i>
             Edit Buyer
@@ -21,111 +20,125 @@
         </div>
 
         <div class="modal-body">
-          <form #userForm="ngForm">
-          <div class="form-group row"> 
-            <label for="code" class="col-sm-3 col-form-label">Buyer Code</label>
-            <div class="col-sm-9">
-              <input required id="code" type="text" 
-                     class="form-control" placeholder="Code"
-                     name="buyerCode" [(ngModel)]="buyerCode" buyerCode="ngModel">  
+          <form #userForm="ngForm" (ngSubmit)="addBuyer()" novalidate>
+            <div class="form-group row" [class.has-error]="code.invalid && code.touched">
+              <label for="code" class="col-sm-3 col-form-label control-label">Buyer Code <span>*</span></label>
+              <div class="col-sm-9">
+                <input required id="buyerCode" type="text" class="form-control " placeholder="Code" name="buyerCode"
+                  [(ngModel)]="data.buyerCode" #code="ngModel" [ngClass]="{'error': code.invalid && code.touched}">
+              </div>
             </div>
-          </div>
-         
-          <div class="form-group row" >
-            <label for="name" class="col-sm-3 col-form-label">Buyer Name</label>
-            <div class="col-sm-9">
-              <input required type="text" class="form-control" id="name" placeholder="Name">
+
+
+            <div class="form-group row">
+              <label for="name" class="col-sm-3 col-form-label">Buyer Name<span>*</span></label>
+              <div class="col-sm-9">
+                <input required id="buyerName" type="text" class="form-control" placeholder="Name" name="buyerName"
+                  [(ngModel)]="data.buyerName" #name="ngModel" [ngClass]="{'error': name.invalid && name.touched}">
+              </div>
             </div>
-          </div>
-        </form>
 
-          <div class="form-group row">
-            <label for="bill-address" class="col-sm-3 col-form-label">Billing Address</label>
-            <div class="col-sm-9">
-              <textarea class="form-control" id="bill-address" rows="3"></textarea>
+            <div class="form-group row">
+              <label for="bill-address" class="col-sm-3 col-form-label">Billing Address<span>*</span></label>
+              <div class="col-sm-9">
+                <textarea required class="form-control" id="buyerBillAddress" rows="3" name="buyerBillAddress"
+                  [(ngModel)]="data.buyerBillAddress" #buyerBillAddress="ngModel"
+                  [ngClass]="{'error': buyerBillAddress.invalid && buyerBillAddress.touched}"></textarea>
+              </div>
             </div>
-          </div>
 
-          <div class="form-group row">
-            <label for="delivery-address" class="col-sm-3 col-form-label">Delivery Address</label>
-            <div class="col-sm-9">
-              <textarea class="form-control" id="delivery-address" rows="3"></textarea>
+            <div class="form-group row">
+              <label for="delivery-address" class="col-sm-3 col-form-label">Delivery Address<span>*</span></label>
+              <div class="col-sm-9">
+                <textarea required class="form-control" id="buyerDiliveryAddress" rows="3" name="buyerDiliveryAddress"
+                  [(ngModel)]="data.buyerDiliveryAddress" #buyerDiliveryAddress="ngModel"
+                  [ngClass]="{'error': buyerDiliveryAddress.invalid && buyerDiliveryAddress.touched}"></textarea>
+              </div>
             </div>
-          </div>
 
-          <div class="form-group row">
-            <label for="country" class="col-sm-3 col-form-label">Country</label>
-            <div class="col-sm-9">
-              <select id="country" class="form-control">
-                <option> Sweden</option>
-                <option>Sweden</option>
-              </select>
+            <div class="form-group row">
+              <label for="country" class="col-sm-3 col-form-label">Country<span>*</span></label>
+              <div class="col-sm-9">
+                <select class="form-control" name="countryId" [(ngModel)]="countryId">
+                <option value="null" disabled> Select Contery</option>
+                <option *ngFor="let i of country" [value]="i.id">
+                        {{i.name}}
+                </option>  
+                </select>
+              </div>
             </div>
-          </div>
 
-          <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-3 col-form-label">Contact Nos.</label>
-            <div class="col-sm-4">
-              <input type="email" class="form-control" id="inputEmail3" placeholder="Primary Contact No.">
+            <div class="form-group row">
+              <label for="buyerContact" class="col-sm-3 col-form-label">Contact Nos.<span>*</span></label>
+              <div class="col-sm-4">
+                <input required type="email" class="form-control" id="buyerContact" placeholder="Contact No."
+                  name="buyerContact" [(ngModel)]="data.buyerContact" #buyerContact="ngModel"
+                  [ngClass]="{'error': buyerContact.invalid && buyerContact.touched}">
+              </div>
+              <div class="col-sm-4 ml-2">
+                <input type="email" class="form-control" id="buyerOtherContact" placeholder="Other Contact No."
+                  name="buyerOtherContact" [(ngModel)]="data.buyerOtherContact" #buyerOtherContact="ngModel"
+                  [ngClass]="{'error': buyerOtherContact.invalid && buyerOtherContact.touched}">
+              </div>
             </div>
-            <div class="col-sm-4 ml-2">
-              <input type="email" class="form-control" id="inputEmail3" placeholder="Other Contact No.">
+
+            <div class="form-group row">
+              <label for="buyerFax" class="col-sm-3 col-form-label">Fax Number</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="buyerFax" placeholder="Buyer Fax No." name="buyerFax"
+                  [(ngModel)]="data.buyerFax" #buyerFax="ngModel">
+              </div>
             </div>
-          </div>
 
-          <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-3 col-form-label">Fax Number</label>
-            <div class="col-sm-9">
-              <input type="email" class="form-control" id="inputEmail3" placeholder="Buyer Fax No.">
+            <div class="form-group row">
+              <label for="buyerNTN" class="col-sm-3 col-form-label">NTN/GST Nos.</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="buyerNTN" placeholder="NTN No." name="buyerNTN"
+                  [(ngModel)]="data.buyerNTN" #buyerNTN="ngModel">
+              </div>
+              <div class="col-sm-4 ml-2">
+                <input type="text" class="form-control" id="buyerGST" placeholder="GST No." name="buyerGST"
+                  [(ngModel)]="data.buyerGST" #buyerGST="ngModel">
+              </div>
             </div>
-          </div>
 
-          <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-3 col-form-label">NTN/GST Nos.</label>
-            <div class="col-sm-4">
-              <input type="email" class="form-control" id="inputEmail3" placeholder="NTN No.">
+            <div class="form-group row">
+              <label for="buyerDetails" class="col-sm-3 col-form-label">Buyer Details</label>
+              <div class="col-sm-9">
+                <textarea class="form-control" id="buyerDetails" rows="4" name="buyerDetails"
+                  [(ngModel)]="data.buyerDetails" #buyerDetails="ngModel"></textarea>
+              </div>
             </div>
-            <div class="col-sm-4 ml-2">
-              <input type="email" class="form-control" id="inputEmail3" placeholder="GST No.">
+
+            <div class="form-check form-check-inline">
+              <input class="form-check-input check-btn" type="checkbox" checked>
+              <label class="form-check-label">Parent Buyer</label>
             </div>
-          </div>
 
-          <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-3 col-form-label">Buyer Details</label>
-            <div class="col-sm-9">
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-3 col-form-label">Parent Buyer</label>
+              <div class="col-sm-9">
+                <select class="form-control">
+                  <option> Ali</option>
+                  <option> Ali</option>
+                  <option> Ali</option>
+                  <option> Ali</option>
+                  <option> Ali</option>
+                </select>
+              </div>
             </div>
-          </div>
 
-
-
-          <div class="form-check form-check-inline">
-            <input class="form-check-input check-btn" type="checkbox" >
-            <label class="form-check-label" >Parent Buyer</label>
-          </div>
-
-
-
-          <div class="form-group row">
-            <label for="inputEmail3" class="col-sm-3 col-form-label">Parent Buyer</label>
-            <div class="col-sm-9">
-              <select class="form-control">
-                <option> Ali</option>
-                <option> Ali</option>
-                <option> Ali</option>
-                <option> Ali</option>
-                <option> Ali</option>
-              </select>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button class="btn button-save" type="submit" (click)="addBuyer()" [disabled]="userForm.invalid">Update
+                Buyer</button>
             </div>
-          </div>
+          </form>
+
+
+
+
         </div>
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" class="btn button-save">Update Buyer</button>
-        </div> 
-
       </div>
     </div>
   </div>
-</div>

@@ -12,28 +12,31 @@ export class UserHomeComponent implements OnInit {
   response:any;
   states:any;
   constructor( 
-       private http: HttpClient,
-    private toastr: ToastrService) { }
+    //    private http: HttpClient,
+    // private toastr: ToastrService
+    ) { }
 
   ngOnInit(): void {
   }
-  onCountrychangeEdit(event:any){
-    let that = this;
-    that.http
-    .get(`${environment.apiUrl}/api/Lookups/States`)
-      .subscribe(res => {
-        this.response = res;
-        if (this.response.success == true) {
-          that.states =this.response.data;
-        }
-        else {
-          this.toastr.error('Something went Worng', 'Message.');
-        }
 
-      }, err => {
-        if (err.status == 400) {
-          this.toastr.error('Something went Worng', 'Message.');
-        }
-      });
-  }
+  // onCountrychangeEdit(event:any){
+  //   let that = this;
+  //   that.http
+  //   .get(`${environment.apiUrl}/api/Lookups/States`)
+  //     .subscribe(res => {
+  //       this.response = res;
+  //       if (this.response.success == true) {
+  //         that.states =this.response.data;
+  //       }
+  //       else {
+  //         this.toastr.error('Something went Worng', 'Message.');
+  //       }
+
+  //     }, err => {
+  //       if (err.status == 400) {
+  //         this.toastr.error('Something went Worng', 'Message.');
+  //       }
+  //     });
+  // }
+
 }
