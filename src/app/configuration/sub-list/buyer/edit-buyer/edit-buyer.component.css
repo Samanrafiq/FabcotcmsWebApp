@@ -37,11 +37,3 @@ label{
 span {
     color: red;
 }
-
-.editIconBack :hover{
-        color: #24a0ed ;
-}
-
-.deleteIconBack :hover{
-    color:red ;
-}

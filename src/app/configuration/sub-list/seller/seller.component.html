@@ -1,18 +1,49 @@
 <div class="content-wrapper">
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
-        Edit From Here
+        Add Seller
       </button>
+
+  <div class="container mt-4">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr >
+          <th scope="row">
+            <!-- {{i.id}} -->
+          </th>
+          <td>
+            <!-- {{i.sellerName}} -->
+          </td>
+          <td class="text-right v-align-top">
+            <button type="button" class="btn editIconBack" >
+              <i class="far fa-edit "></i>
+            </button>
+            <button type="button" class="btn deleteIconBack" >
+              <i class="far fa-trash-alt"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
       
       <!-- Modal -->
-      <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+      <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
           <div class="modal-content">
             <div class="modal-header">
                
               <h5 class="modal-title" id="exampleModalScrollableTitle"> 
                   <i class="far fa-edit"></i>
-                    Edit Seller</h5>
+                    Add Seller</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -20,38 +51,41 @@
             <div class="modal-body">
              
                 <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-3 col-form-label">Seller Code</label>
+                    <label for="inputEmail3" class="col-sm-3 col-form-label">Seller Code<span>*</span></label>
                     <div class="col-sm-9">
                       <input type="email" class="form-control" id="inputEmail3" placeholder="Code">
                     </div>
                   </div>
     
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-3 col-form-label">Seller Name</label>
+                    <label for="inputEmail3" class="col-sm-3 col-form-label">Seller Name<span>*</span></label>
                     <div class="col-sm-9">
                       <input type="email" class="form-control" id="inputEmail3" placeholder="Name">
                     </div>
                   </div>
     
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-3 col-form-label">Billing Address</label>
+                    <label for="inputEmail3" class="col-sm-3 col-form-label">Billing Address<span>*</span></label>
                     <div class="col-sm-9">
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
                   </div>
     
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-3 col-form-label">Country</label>
+                    <label for="inputEmail3" class="col-sm-3 col-form-label">Country<span>*</span></label>
                     <div class="col-sm-9">
-                        <select id="department" name="department" class="form-control">
-                            <option> Pakistan</option>
-                            <option>Sweden</option>     
+                        <select name="country " class="form-control">
+                            <option disabled> Select Country</option>
+                            <option *ngFor="let i of country" [value]="i.id">
+                              {{i.name}}
+                            </option>
+                                 
                         </select>
                     </div>
                   </div>
     
                   <div class="form-group row">
-                    <label for="inputEmail3" class="col-sm-3 col-form-label">Contact Nos.</label>
+                    <label for="inputEmail3" class="col-sm-3 col-form-label">Contact Nos.<span>*</span></label>
                     <div class="col-sm-4">
                       <input type="email" class="form-control" id="inputEmail3" placeholder="Primary Contact No.">
                     </div>

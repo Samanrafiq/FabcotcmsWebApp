@@ -26,6 +26,9 @@ label{
     background-image:  url('/assets/caution.png');
     background-size: 15px;
 }
+span {
+    color: red;
+}
 .form-control{
     box-shadow: 0 0 0 0 !important;
 }
