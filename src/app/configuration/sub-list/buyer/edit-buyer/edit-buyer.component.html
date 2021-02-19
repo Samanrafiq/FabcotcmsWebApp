@@ -1,5 +1,5 @@
 <!-- Modal -->
-<form #userForm="ngForm" novalidate>
+<form #buyerEditForm="ngForm" novalidate>
   <div class="modal-header">
     <h5 class="modal-title">
       <i class="far fa-edit"></i>
@@ -123,7 +123,7 @@
   <div class="modal-footer bg-light">
 
     <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="activeModal.close()">Close</button>
-    <button class="btn button-save" type="submit" [disabled]="userForm.invalid" (click)="updateBuyer()  ">Update
-      Buyer</button>
+    <button class="btn button-save" type="submit" [disabled]="buyerEditForm.invalid" (click)="updateBuyer()">
+      Update Buyer</button>
   </div>
 </form>

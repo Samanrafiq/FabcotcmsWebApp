@@ -70,7 +70,7 @@
         </div>
 
         <div class="modal-body">
-          <form  #userForm="ngForm" novalidate>
+          <form  #buyerForm="ngForm" novalidate>
             <div class="form-group row" [class.has-error]="code.invalid && code.touched">
               <label for="code" class="col-sm-3 col-form-label control-label">Buyer Code <span>*</span></label>
               <div class="col-sm-9">
@@ -180,8 +180,8 @@
 
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button class="btn button-save" type="submit" (click)="addBuyer()" [disabled]="userForm.invalid">Update
-                Buyer</button>
+              <button class="btn button-save" type="submit" (click)="addBuyer()" [disabled]="buyerForm.invalid">
+                Add Buyer</button>
             </div>
           </form>
 

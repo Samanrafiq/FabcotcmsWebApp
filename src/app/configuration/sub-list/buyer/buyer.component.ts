@@ -3,7 +3,7 @@ import { FormGroup, NgForm } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { EditBuyerComponent } from './edit-buyer/edit-buyer.component';
 
 @Component({
@@ -13,16 +13,16 @@ import { EditBuyerComponent } from './edit-buyer/edit-buyer.component';
 })
 export class BuyerComponent implements OnInit {
     response: any;
-    states: any;
     data:any={};
     country:any=[];
     buyer:any[];
     countryId:null;
-  @ViewChild(NgForm) userForm ;
-  constructor(private http:HttpClient,
+    @ViewChild(NgForm) buyerForm;
+    
+    constructor(private http:HttpClient,
               private toastr: ToastrService,  
               private modalService: NgbModal,
-              // private _NgbActiveModal: NgbActiveModal,
+  
                 )
                { }
 
@@ -31,14 +31,9 @@ export class BuyerComponent implements OnInit {
   ngOnInit(){
     this.getBuyers();
     this.getCountry();
-    // this._NgbActiveModal.close()
-
   }
 
-  // get activeModal() {
-  //   return this._NgbActiveModal;
-  // }
-  
+
   getCountry()
   {
     this.http.get(`${environment.apiUrl}/api/Lookups/Countries`)
@@ -93,7 +88,7 @@ export class BuyerComponent implements OnInit {
         "buyerName": this.data.buyerName,
         "billingAddress": this.data.buyerBillAddress,
         "deliveryAddress": this.data.buyerDiliveryAddress,
-        "countryId": 2, 
+        "countryId": 1, 
         "contactNoPrimary": this.data.buyerContact,
         "contactNoSecondary": this.data.buyerOtherContact,
         "faxNumber": this.data.buyerFax,
@@ -113,8 +108,7 @@ export class BuyerComponent implements OnInit {
           if (this.response.success == true){
             this.toastr.success(this.response.message, 'Message.');
             this.getBuyers();
-           this.userForm.reset();
-
+            this.buyerForm.reset();
           }
           else {
             this.toastr.error('Something went Worng', 'Message.');
@@ -130,8 +124,8 @@ export class BuyerComponent implements OnInit {
 
  editBuyer(popup){
    const modalRef = this.modalService.open(EditBuyerComponent, { centered: true });
-      modalRef.componentInstance.userId = popup.id;
-      modalRef.result.then((data) => {
+         modalRef.componentInstance.userId = popup.id;
+         modalRef.result.then((data) => {
         // on close
         if(data ==true){
           this.getBuyers();
@@ -140,9 +134,6 @@ export class BuyerComponent implements OnInit {
       }, (reason) => {
         // on dismiss
       });
-
-
-
  } 
  
 
@@ -154,7 +145,7 @@ export class BuyerComponent implements OnInit {
      res=> { 
        this.response = res;
        if (this.response.success == true){
-        this.toastr.success(this.response.message, 'Message.');
+        this.toastr.error(this.response.message, 'Message.');
         this.getBuyers();
        }
        else {
