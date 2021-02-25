@@ -12,12 +12,15 @@ import { EditBuyerComponent } from './edit-buyer/edit-buyer.component';
   styleUrls: ['./buyer.component.css']
 })
 export class BuyerComponent implements OnInit {
+  listCount:number;
+    myDate=Date.now();
     response: any;
     data:any={};
     country:any=[];
     buyer:any[];
     countryId:null;
     @ViewChild(NgForm) buyerForm;
+  date: number;
     
     constructor(private http:HttpClient,
               private toastr: ToastrService,  
@@ -64,6 +67,7 @@ export class BuyerComponent implements OnInit {
           this.response = res;
           if (this.response.success == true){
             this.buyer =this.response.data;
+            this.listCount =this.buyer.length;
            
           }
           else {
@@ -76,9 +80,6 @@ export class BuyerComponent implements OnInit {
           }
         });
     }
-
-  
-  
 
 
     addBuyer()
@@ -128,6 +129,7 @@ export class BuyerComponent implements OnInit {
          modalRef.result.then((data) => {
         // on close
         if(data ==true){
+          this.date = this.myDate;
           this.getBuyers();
 
         }

@@ -108,7 +108,6 @@ export class EditSellerComponent implements OnInit {
           this.toastr.success(this.response.message, 'Message.');
           this.activeModal.close(true);
       
-
         }
         else {
           this.toastr.error('Something went Worng', 'Message.');

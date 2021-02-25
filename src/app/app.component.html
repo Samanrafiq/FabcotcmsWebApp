@@ -79,12 +79,6 @@
 
 
 
-
-
-
-
-
-
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
@@ -153,7 +147,7 @@
               </li>
 
                  <li class="nav-item">
-                <a routerLink="home" class="nav-link">
+                <a class="nav-link">
                 <i class="fas fa-cogs"></i>
                   <p>Configuration</p>
                   <i class="right fas fa-angle-left"></i>
@@ -172,19 +166,19 @@
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a routerLink="foreignAgent" class="nav-link">
                       <i class="fas fa-user-tie"></i>
                       <p>Foreign External Agents</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a routerLink="article" class="nav-link">
                       <i class="fas fa-anchor"></i>
                       <p>Articles</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a routerLink="product" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Product</p>
                       <i class="right fas fa-angle-left"></i>
@@ -214,7 +208,7 @@
                     </ul>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a routerLink="textile" class="nav-link">
                       <i class="fas fa-tshirt"></i>
                       <p >Textile/Garments</p>
                       <p><i class="right fas fa-angle-left"></i></p>
@@ -266,7 +260,7 @@
 
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a routerLink="bankInfo" class="nav-link">
                       <i class="fas fa-calculator"></i>
                       <p>Bank Info</p>
                       <i class="right fas fa-angle-left"></i>
@@ -287,37 +281,37 @@
                     </ul>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a routerLink="city-location" class="nav-link">
                       <i class="fas fa-map-marker-alt"></i>
                       <p>City Location</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a routerLink="country" class="nav-link">
                       <i class="far fa-map"></i>
                       <p>Country</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a routerLink="organization" class="nav-link">
                       <i class="fas fa-sitemap"></i>
                       <p>Organization</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a routerLink="generalsettings" class="nav-link">
                       <i class="fas fa-wrench"></i>
                       <p>General Settings</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a routerLink="notificationsettings" class="nav-link">
                       <i class="fas fa-bell"></i>
                       <p>Notification Settings</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a routerLink="currency-rate" class="nav-link">
                       <i class="fab fa-btc"></i>
                       <p>Currency Rate</p>
                     </a>
@@ -405,6 +399,11 @@
      </div>
   </aside>
 
-  <router-outlet></router-outlet>
 
+
+  <div class="content-wrapper">
+    <div class="innerBody">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 
