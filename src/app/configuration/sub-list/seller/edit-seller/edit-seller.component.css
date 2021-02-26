@@ -1,7 +1,0 @@
-.close:not(:disabled):not(.disabled):focus, .mailbox-attachment-close:not(:disabled):not(.disabled):focus {
-    outline: none;
-}
-
-span {
-    color: red;
-}

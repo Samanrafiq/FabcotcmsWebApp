@@ -1,0 +1,154 @@
+<!-- Modal -->
+
+        <div class="modal-header">
+  
+          <h5 class="modal-title" id="exampleModalScrollableTitle">
+            <i class="far fa-edit"></i>
+            Add Seller
+          </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="activeModal.close()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #sellerForm="ngForm" novalidate>
+            <div class="form-group row">
+              <label for="sellerCode" class="col-sm-3 col-form-label">Seller Code<span>*</span></label>
+              <div class="col-sm-9">
+                <input required id="sellerCode" type="text" class="form-control " placeholder="Code" name="sellerCode"
+                  [(ngModel)]="data.sellerCode" #code="ngModel" [ngClass]="{'error': code.invalid && code.touched}">
+              </div>
+            </div>
+  
+            <div class="form-group row">
+              <label for="sellerName" class="col-sm-3 col-form-label">Seller Name<span>*</span></label>
+              <div class="col-sm-9">
+                <input required id="sellerName" type="text" class="form-control" placeholder="Name" name="sellerName"
+                  [(ngModel)]="data.sellerName" #name="ngModel" [ngClass]="{'error': name.invalid && name.touched}">
+              </div>
+            </div>
+  
+            <div class="form-group row">
+              <label for="sellerBillAddress" class="col-sm-3 col-form-label">Billing Address<span>*</span></label>
+              <div class="col-sm-9">
+                <textarea required class="form-control" id="sellerBillAddress" rows="3" name="sellerBillAddress"
+                  [(ngModel)]="data.sellerBillAddress" #sellerBillAddress="ngModel"
+                  [ngClass]="{'error': sellerBillAddress.invalid && sellerBillAddress.touched}"></textarea>
+              </div>
+            </div>
+  
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-3 col-form-label">Country<span>*</span></label>
+              <div class="col-sm-9">
+                <select name="country " class="form-control" [(ngModel)]="countryId">
+                  <option value="null" disabled> Select Country</option>
+                  <option *ngFor="let i of country" [value]="i.name">
+                    {{i.name}}
+                  </option>
+                </select>
+              </div>
+            </div>
+  
+            <div class="form-group row">
+              <label for="sellerContact" class="col-sm-3 col-form-label">Contact Nos.<span>*</span></label>
+              <div class="col-sm-4">
+                <input required type="text" class="form-control" id="sellerContact" placeholder="Contact No."
+                  name="sellerContact" [(ngModel)]="data.sellerContact" #sellerContact="ngModel"
+                  [ngClass]="{'error': sellerContact.invalid && sellerContact.touched}">
+              </div>
+              <div class="col-sm-4 ml-2">
+                <input type="text" class="form-control" id="sellerOtherContact" placeholder="Other Contact No."
+                  name="sellerOtherContact" [(ngModel)]="data.sellerOtherContact" #sellerOtherContact="ngModel"
+                  [disabled]=" sellerContact.invalid">
+              </div>
+            </div>
+  
+            <div class="form-group row">
+              <label for="sellerFax" class="col-sm-3 col-form-label">Fax Number</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" id="sellerFax" placeholder="seller Fax No." name="sellerFax"
+                  [(ngModel)]="data.sellerFax" #sellerFax="ngModel">
+              </div>
+            </div>
+  
+            <div class="form-group row">
+              <label for="sellerNTN" class="col-sm-3 col-form-label">NTN/GST Nos.</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="sellerNTN" placeholder="NTN No." name="sellerNTN"
+                  [(ngModel)]="data.sellerNTN" #sellerNTN="ngModel">
+              </div>
+              <div class="col-sm-4 ml-2">
+                <input type="text" class="form-control" id="sellerGST" placeholder="GST No." name="sellerGST"
+                  [(ngModel)]="data.sellerGST" #sellerGST="ngModel">
+              </div>
+            </div>
+  
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-3 col-form-label">Machine Details</label>
+              <div class="col-sm-9">
+                <select class="form-control">
+                  <option>Select Machine Details</option>
+                  <option>Sweden</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-3 col-form-label">Capabilities</label>
+              <div class="col-sm-9">
+                <select class="form-control">
+                  <option>Nothing Selected</option>
+                  <option>Sweden</option>
+                </select>
+              </div>
+            </div>
+  
+            <div class="form-group row">
+              <label for="sellerStrenght" class="col-sm-3 col-form-label">Major Strenghts</label>
+              <div class="col-sm-9">
+                <textarea class="form-control" id="sellerStrenght" rows="3" name="sellerStrenght"
+                  [(ngModel)]="data.sellerStrenght" #sellerStrenght="ngModel"></textarea>
+              </div>
+            </div>
+  
+            <div class="form-group row">
+              <label for="leadTime" class="col-sm-3 col-form-label">Leadtime / MOQ</label>
+              <div class="col-sm-9">
+                <textarea class="form-control" id="leadTime" rows="3" name="leadTime" [(ngModel)]="data.leadTime"
+                  #leadTime="ngModel"></textarea>
+              </div>
+            </div>
+  
+            <div class="form-group row">
+              <label for="sellerDetails" class="col-sm-3 col-form-label">Seller Details</label>
+              <div class="col-sm-9">
+                <textarea class="form-control" id="sellerDetails" rows="3" name="sellerDetails"
+                  [(ngModel)]="data.sellerDetails" #sellerDetails="ngModel"></textarea>
+              </div>
+            </div>
+  
+            <div class="form-check form-check-inline">
+              <input class="form-check-input check-btn" type="checkbox" id="inlineCheckbox1" value="option1">
+              <label class="form-check-label" for="inlineCheckbox1">Parent Buyer</label>
+            </div>
+  
+            <div class="form-group row">
+              <label for="inputEmail3" class="col-sm-3 col-form-label">Parent Seller</label>
+              <div class="col-sm-9">
+                <select class="form-control">
+                  <option> Ali</option>
+                  <option> Ali</option>
+                  <option> Ali</option>
+                  <option> Ali</option>
+                  <option> Ali</option>
+                </select>
+              </div>
+            </div>
+  
+  
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="activeModal.close()">Close</button>
+              <button type="button" class="btn button-save" (click)="addSeller()" [disabled]="sellerForm.invalid">Add
+                Seller</button>
+            </div>
+          </form>
+        </div>
