@@ -12,6 +12,7 @@ import { ConfigurationModule } from './configuration/configuration.module';
 import { HomeComponent } from './home/home.component';
 
 
+
 const appRoutes: Routes = [
   // {path: 'home', component: UserHomeComponent},
   // {path: 'buyer', component: BuyerComponent},
@@ -48,6 +49,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    
     RouterModule.forRoot(appRoutes),
     ToastrModule.forRoot({
       progressBar: true,

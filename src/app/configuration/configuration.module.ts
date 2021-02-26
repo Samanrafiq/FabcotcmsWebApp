@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 import { ConfigurationRoutingModule } from './configuration-routing.module';
 import { ConfigurationComponent } from './configuration.component';
@@ -19,6 +20,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { BuyerComponent } from './buyer/buyer.component';
 import { AddBuyerComponent } from './buyer/add-buyer/add-buyer.component';
 import { EditBuyerComponent } from './buyer/edit-buyer/edit-buyer.component';
+import { ArticlesComponent } from './articles/articles.component';
 
 
 @NgModule({
@@ -32,7 +34,7 @@ import { EditBuyerComponent } from './buyer/edit-buyer/edit-buyer.component';
     EditAgentFormComponent, 
     BuyerComponent, 
     AddBuyerComponent, 
-    EditBuyerComponent,
+    EditBuyerComponent, ArticlesComponent,
   
   
   ],
@@ -45,6 +47,7 @@ import { EditBuyerComponent } from './buyer/edit-buyer/edit-buyer.component';
     NgbModule,
     BrowserModule,
     AppRoutingModule,
+    NgxDatatableModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,

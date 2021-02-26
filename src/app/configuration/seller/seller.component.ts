@@ -11,6 +11,7 @@ import { AddSellerFormComponent } from './add-seller-form/add-seller-form.compon
   styleUrls: ['./seller.component.css']
 })
 export class SellerComponent implements OnInit {
+  listCount:number;
   data:any={};
   response: any;
   seller:any[];
@@ -54,6 +55,7 @@ export class SellerComponent implements OnInit {
         this.response = res;
         if (this.response.success == true){
           this.seller =this.response.data;
+          this.listCount =this.seller.length;
          
         }
         else {

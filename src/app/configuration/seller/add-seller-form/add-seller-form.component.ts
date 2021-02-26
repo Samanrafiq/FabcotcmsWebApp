@@ -109,8 +109,7 @@ export class AddSellerFormComponent implements OnInit {
         if (this.response.success == true){
           this.toastr.success(this.response.message, 'Message.');
           this.sellerForm.reset();
-          // this.activeModal.close(true);
-          this.getSellers();
+          this.activeModal.close(true);
         }
         else {
           this.toastr.error('Something went Worng', 'Message.');

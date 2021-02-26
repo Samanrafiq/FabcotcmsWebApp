@@ -26,7 +26,6 @@ export class AddBuyerComponent implements OnInit {
               private _NgbActiveModal: NgbActiveModal) { }
 
   ngOnInit(): void {
-    this.getBuyers();
     this.getCountry();
   }
 
@@ -44,32 +43,6 @@ export class AddBuyerComponent implements OnInit {
         this.response = res;
         if (this.response.success == true){
           this.country =this.response.data;
-        }
-        else {
-          this.toastr.error('Something went Worng', 'Message.');
-            }
-
-      }, err => {
-        if (err.status == 400) {
-          this.toastr.error('Something went Worng', 'Message.');
-        }
-      });
-  }
-
-
-
-  
-  getBuyers()
-  {
-    this.http.get(`${environment.apiUrl}/api/Buyers/GetBuyers`)
-    .subscribe(
-      res=> { 
-  
-        this.response = res;
-        if (this.response.success == true){
-          this.buyer =this.response.data;
-          this.listCount =this.buyer.length;
-         
         }
         else {
           this.toastr.error('Something went Worng', 'Message.');
@@ -112,9 +85,9 @@ export class AddBuyerComponent implements OnInit {
         this.response = res;
         if (this.response.success == true){
           this.toastr.success(this.response.message, 'Message.');
-          this.getBuyers();
+      
           this.buyerForm.reset();
-          // this.activeModal.close(true);
+          this.activeModal.close(true);
         }
         else {
           this.toastr.error('Something went Worng', 'Message.');

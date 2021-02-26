@@ -1,1 +1,66 @@
-<p>foreign-agent works!</p>
+<div class="content-header p-4">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-12">
+          <h3 class="m-0 ">External Agents & L/C Opener </h3>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+
+  <div class="ibox-content">
+    <div class=" panel blank-panel">  
+      <div class=" panel-heading">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td  >
+                        <button type="button" class="btn btn-primary m-r-sm text-s-md px-3"> <i class="fas fa-user-tie"></i> 2</button>
+                        <span class="text-muted text">Agent</span>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-info m-r-sm text-s-md px-3"> <i class="fas fa-user-tie"></i> 0</button>
+                        <span class="text-muted text">L/C Openner</span>
+                    </td>
+                    <td >
+                        <button type="button" class="btn btn-primary btn-md float-right"><i class="fa fa-plus"></i> Add New Agent</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+        <ngx-datatable #myTable class="material" [columns]="columns" [rows]="rows" [columnMode]="'force'" 
+        [headerHeight]="50" [footerHeight]="50"
+        [rowHeight]="'auto'" [limit]="4">
+
+      <ngx-datatable-column name="Code" [width]="20" prop="code" > 
+          <ng-template let-row="row"  ngx-datatable-cell-template>
+            {{row.code}}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Name" [width]="80">
+          <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
+            {{row.name}}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Type" [width]="80">
+          <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
+            {{row.agentTypeId}}
+          </ng-template>
+        </ngx-datatable-column>
+
+
+
+
+
+        </ngx-datatable>      
+
+
+
+
+
+      </div>
+    </div>
+  </div>
