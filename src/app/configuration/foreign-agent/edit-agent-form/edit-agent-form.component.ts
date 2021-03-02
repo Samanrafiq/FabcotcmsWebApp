@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-edit-agent-form',
@@ -6,10 +10,82 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-agent-form.component.css']
 })
 export class EditAgentFormComponent implements OnInit {
-
-  constructor() { }
+  @Input() userId;
+  data:any={};
+  response: any;
+  agentTypeId: null;
+  agentSideId: null;
+  constructor(private http:HttpClient,
+              private toastr: ToastrService,
+              private _NgbActiveModal: NgbActiveModal) { }
 
   ngOnInit(): void {
   }
 
+  get activeModal() {
+    return this._NgbActiveModal;
+  }
+
+
+
+  editAgent(id)
+  {
+    this.http.get(`${environment.apiUrl}/api/Configs/GetExternalAgentById/`+id )
+    .subscribe(
+      res=> { 
+        this.response = res;
+        if (this.response.success == true){
+          this.data =this.response.data; 
+        }
+        else {
+          this.toastr.error('Something went Worng', 'Message.');
+            }
+
+      }, err => {
+        if (err.status == 400) {
+          this.toastr.error('Something went Worng', 'Message.');
+        }
+      });
+  }
+
+
+  UpdateAgent()
+  {
+    let varr=  {
+      "agentTypeId": this.data.agentTypeId,
+      "agentSideId": this.data.agentSideId,
+      "code": this.data.code,
+      "name": this.data.name,
+      "address": this.data.address,
+      "cityId": this.data.cityId,
+      "emailAddress": this.data.emailAddress,
+      "cellNumber": this.data.cellNumber,
+      "landlineNumber": this.data.landlineNumber,
+      "bankName": this.data.bankName,
+      "accountNumber": this.data.accountNumber,
+      "accountTitle": this.data.accountTitle,
+      "swiftCode": this.data.swiftCode,
+      "details": this.data.details
+    }
+
+    this.http.
+    put(`${environment.apiUrl}/api/Configs/UpdateExternalAgent/`+this.userId,varr)
+    .subscribe(
+      res=> { 
+  
+        this.response = res;
+        if (this.response.success == true){
+          this.toastr.success(this.response.message, 'Message.');
+          this.activeModal.close(true);
+        }
+        else {
+          this.toastr.error('Something went Worng', 'Message.');
+            }
+
+      }, err => {
+        if (err.status == 400) {
+          this.toastr.error('Something went Worng', 'Message.');
+        }
+      });
+  }
 }

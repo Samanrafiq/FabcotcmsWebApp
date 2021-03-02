@@ -4,6 +4,8 @@ import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { AddAgentFormComponent } from './add-agent-form/add-agent-form.component';
+import { EditAgentFormComponent } from './edit-agent-form/edit-agent-form.component';
 
 @Component({
   selector: 'app-foreign-agent',
@@ -12,10 +14,13 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ForeignAgentComponent implements OnInit {
   response:any;
-  rows:[];
-  columns=[];
+  rows:any=[];
+  columns:any=[];
   data:any={};
   @ViewChild('myTable') table: ForeignAgentComponent;
+  listCount: number;
+  date: number;
+  myDate=Date.now();
   constructor(private http:HttpClient,
     private toastr: ToastrService,  
     private modalService: NgbModal,
@@ -35,6 +40,7 @@ export class ForeignAgentComponent implements OnInit {
     .get(`${environment.apiUrl}/api/Configs/GetAllExternalAgent`)
     .subscribe(res => {
       this.response = res;
+      this.listCount = this.fetch.length;
     if(this.response.success==true)
     {
     that.data =this.response.data;
@@ -51,5 +57,69 @@ export class ForeignAgentComponent implements OnInit {
     //  this.spinner.hide();
     });
   }
+
+  deleteAgent(id)
+  {
+    this.http.delete(`${environment.apiUrl}/api/Configs/DeleteExternalAgent/`+id.id )
+    .subscribe(
+      res=> { 
+        this.response = res;
+        if (this.response.success == true){
+         this.toastr.error(this.response.message, 'Message.');
+         this.fetch((data) => {
+          this.rows = data;
+        });
+          
+        }
+        else {
+          this.toastr.error('Something went Worng', 'Message.');
+            }
+ 
+      }, err => {
+        if (err.status == 400) {
+          this.toastr.error(this.response.message, 'Message.');
+        }
+      });
+  }
+
+
+  addAgentForm(){
+    const modalRef = this.modalService.open(AddAgentFormComponent, { centered: true });
+          modalRef.result.then((data) => {
+         // on close
+          if(data ==true){
+           this.date = this.myDate;
+           this.fetch((data) => {
+            this.rows = data;
+          });
+           
+  
+         }
+       }, (reason) => {
+         // on dismiss
+       });
+  } 
+  
+
+
+  editAgentForm(){
+    const modalRef = this.modalService.open(EditAgentFormComponent, { centered: true });
+          modalRef.result.then((data) => {
+         // on close
+          if(data ==true){
+           this.date = this.myDate;
+           this.fetch((data) => {
+            this.rows = data;
+          });
+           
+  
+         }
+       }, (reason) => {
+         // on dismiss
+       });
+  } 
+  
+
+
 
 }

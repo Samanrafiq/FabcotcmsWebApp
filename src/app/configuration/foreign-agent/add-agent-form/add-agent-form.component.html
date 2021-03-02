@@ -1,1 +1,146 @@
-<p>add-agent-form works!</p>
+  <!-- Modal -->
+ 
+  <div class="modal-header">
+    <h5 class="modal-title">
+      <i class="far fa-edit"></i>
+      Add new Buyer
+    </h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <form #addAgentForm="ngForm" novalidate>
+        <div class="form-group row">
+            <label name="agentTypeId" class="col-sm-3 col-form-label" [(ngModel)]="agentTypeId">
+                 Type</label>
+            <div class="col-sm-9">
+              <select class="form-control">
+                <option disabled> Select ID</option>
+                <option > 
+                    Ali
+                </option>
+              </select>
+            </div>
+          </div>
+
+
+          <div class="form-group row">
+            <label name="agentSideId" class="col-sm-3 col-form-label" [(ngModel)]="agentSideId">
+                Side
+            </label>
+            <div class="col-sm-9">
+              <select class="form-control">
+                <option> Ali</option>
+                <option *ngFor="let i of agentSideId" [value]="i.id">
+                    {{i.id}}
+                </option>
+              </select>
+            </div>
+          </div>
+
+
+          <div class="form-group row" [class.has-error]="code.invalid && code.touched">
+            <label for="code" class="col-sm-3 col-form-label control-label">Code <span>*</span></label>
+            <div class="col-sm-9">
+              <input required id="code" type="text" class="form-control" placeholder="Name" name="code"
+                [(ngModel)]="data.code" #code="ngModel" [ngClass]="{'error': code.invalid && code.touched}">
+            </div>
+          </div>
+
+      <div class="form-group row" [class.has-error]="code.invalid && code.touched">
+        <label for="code" class="col-sm-3 col-form-label control-label">Name <span>*</span></label>
+        <div class="col-sm-9">
+          <input required id="name" type="text" class="form-control" placeholder="Name" name="name"
+            [(ngModel)]="data.name" #name="ngModel" [ngClass]="{'error': code.invalid && code.touched}">
+        </div>
+      </div>
+
+
+      <div class="form-group row">
+        <label for="name" class="col-sm-3 col-form-label">Address<span>*</span></label>
+        <div class="col-sm-9">
+          <input required id="address" type="text" class="form-control" placeholder="Address" name="address"
+            [(ngModel)]="data.address" #address="ngModel" >
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="inputEmail3" class="col-sm-3 col-form-label">City</label>
+        <div class="col-sm-9">
+          <select class="form-control">
+            <option> Ali</option>
+            <option> Ali</option>
+  
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="name" class="col-sm-3 col-form-label">Email<span>*</span></label>
+        <div class="col-sm-9">
+          <input required id="emailAddress" type="text" class="form-control" placeholder="Email" name="emailAddress"
+            [(ngModel)]="data.emailAddress" #emailAddress="ngModel">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="cellNumber" class="col-sm- col-form-label">Contact Nos.<span>*</span></label>
+        <div class="col-sm-9">
+          <input required type="text" class="form-control" id="cellNumber" placeholder="Contact No."
+            name="cellNumber" [(ngModel)]="data.cellNumber" #cellNumber="ngModel"cellNumber>
+        </div>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="landlineNumber" placeholder="Landline No."
+            name="landlineNumber" [(ngModel)]="data.landlineNumber" #landlineNumber="ngModel"
+            [disabled]=" landlineNumber.invalid">
+        </div>
+      </div>
+ 
+
+      <div class="form-group row" [class.has-error]="code.invalid && code.touched">
+        <label for="code" class="col-sm-3 col-form-label control-label">Bank <span>*</span></label>
+        <div class="col-sm-9">
+          <input required id="bankName" type="text" class="form-control " placeholder="Code" name="bankName"
+            [(ngModel)]="data.bankName" #bankName="ngModel" [ngClass]="{'error': bankName.invalid && bankName.touched}">
+        </div>
+      </div>
+
+      <div class="form-group row" [class.has-error]="code.invalid && code.touched">
+        <label for="accountNumber" class="col-sm-3 col-form-label control-label">Agent <span>*</span></label>
+        <div class="col-sm-9">
+          <input required id="accountNumber" type="text" class="form-control " placeholder="Account Number" name="accountNumber"
+            [(ngModel)]="data.accountNumber" #accountNumber="ngModel" [ngClass]="{'error': accountNumber.invalid && accountNumber.touched}">
+        </div>
+        <div class="col-sm-9">
+            <input required id="accountTitle" type="text" class="form-control " placeholder="Account Name" name="accountTitle"
+              [(ngModel)]="data.accountTitle" #accountTitle="ngModel" [ngClass]="{'error': accountTitle.invalid && accountTitle.touched}">
+          </div>
+      </div>
+
+      <div class="form-group row" [class.has-error]="code.invalid && code.touched">
+        <label for="swiftCode" class="col-sm-3 col-form-label control-label">Swift <span>*</span></label>
+        <div class="col-sm-9">
+          <input required id="swiftCode" type="text" class="form-control " placeholder="Code" name="swiftCode"
+            [(ngModel)]="data.swiftCode" #swiftCode="ngModel" [ngClass]="{'error': swiftCode.invalid && swiftCode.touched}">
+        </div>
+      </div>
+
+
+      <div class="form-group row">
+        <label for="details" class="col-sm-3 col-form-label">Details<span>*</span></label>
+        <div class="col-sm-9">
+          <textarea required class="form-control" id="details" rows="3" name="details"
+            [(ngModel)]="data.details" #details="ngModel">           </textarea>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+        <button class="btn button-save" type="submit" (click)="addAgent()">
+          Add Agent
+        </button>
+      </div>
+    </form>
+  </div>
