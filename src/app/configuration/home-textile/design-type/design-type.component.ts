@@ -3,32 +3,31 @@ import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { AddBankComponent } from './add-bank/add-bank.component';
-import { EditBankComponent } from './edit-bank/edit-bank.component';
+import { AddDesignTypeComponent } from './add-design-type/add-design-type.component';
+import { EditDesignTypeComponent } from './edit-design-type/edit-design-type.component';
 
 @Component({
-  selector: 'app-bank',
-  templateUrl: './bank.component.html',
-  styleUrls: ['./bank.component.css']
+  selector: 'app-design-type',
+  templateUrl: './design-type.component.html',
+  styleUrls: ['./design-type.component.css']
 })
-export class BankComponent implements OnInit {
-  listCount: number;
+export class DesignTypeComponent implements OnInit {
   response:any;
   rows:any=[];
   columns:any=[];
   data:any={};
+  listCount: number;
   myDate=Date.now();
+
 
   constructor(private http:HttpClient,
     private toastr: ToastrService,
-    private modalService: NgbModal,) { }
+    private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.fetch((data) => {
       this.rows = data;
-      this.listCount= this.rows.length;
     });
-  
   }
 
 
@@ -36,10 +35,10 @@ export class BankComponent implements OnInit {
   fetch(cb) {
     let that = this;
     that.http
-    .get(`${environment.apiUrl}/api/Configs/GetAllBank`)
+    .get(`${environment.apiUrl}/api/TextileGarments/GetAllDesignType`)
     .subscribe(res => {
       this.response = res;
-     
+      this.listCount = this.fetch.length;
     if(this.response.success==true)
     {
     that.data =this.response.data;
@@ -58,9 +57,10 @@ export class BankComponent implements OnInit {
   }
 
 
-  deleteBank(id)
+ 
+  deleteDesignType(id)
   {
-    this.http.delete(`${environment.apiUrl}/api/Configs/DeleteBank/`+id.id )
+    this.http.delete(`${environment.apiUrl}/api/TextileGarments/DeleteDesignType/`+id.id )
     .subscribe(
       res=> { 
         this.response = res;
@@ -84,17 +84,14 @@ export class BankComponent implements OnInit {
 
 
 
-
-  
-  addBankForm(){
-    const modalRef = this.modalService.open(AddBankComponent, { centered: true });
+  addDesignTypeForm(){
+    const modalRef = this.modalService.open(AddDesignTypeComponent, { centered: true });
           modalRef.result.then((data) => {
          // on close
           if(data ==true){
           //  this.date = this.myDate;
            this.fetch((data) => {
             this.rows = data;
-        
           });
            
   
@@ -105,8 +102,8 @@ export class BankComponent implements OnInit {
   } 
   
 
-  editEditForm(row){
-    const modalRef = this.modalService.open(EditBankComponent, { centered: true });
+  editDesignTypeForm(row){
+    const modalRef = this.modalService.open(EditDesignTypeComponent, { centered: true });
     modalRef.componentInstance.userId =row.id;
           modalRef.result.then((data) => {
          // on close
@@ -114,7 +111,6 @@ export class BankComponent implements OnInit {
           //  this.date = this.myDate;
            this.fetch((data) => {
             this.rows = data;
-            
           });
            
          }

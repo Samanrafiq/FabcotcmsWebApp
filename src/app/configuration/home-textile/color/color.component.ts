@@ -1,45 +1,43 @@
-import { Component, OnInit } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { AddBankComponent } from './add-bank/add-bank.component';
-import { EditBankComponent } from './edit-bank/edit-bank.component';
+import { ToastrService } from 'ngx-toastr';
+import { environment } from 'src/environments/environment';
+import { AddColorComponent } from './add-color/add-color.component';
+import { EditColorComponent } from './edit-color/edit-color.component';
 
 @Component({
-  selector: 'app-bank',
-  templateUrl: './bank.component.html',
-  styleUrls: ['./bank.component.css']
+  selector: 'app-color',
+  templateUrl: './color.component.html',
+  styleUrls: ['./color.component.css']
 })
-export class BankComponent implements OnInit {
-  listCount: number;
+export class ColorComponent implements OnInit {
   response:any;
   rows:any=[];
   columns:any=[];
   data:any={};
+  listCount: number;
   myDate=Date.now();
 
   constructor(private http:HttpClient,
-    private toastr: ToastrService,
-    private modalService: NgbModal,) { }
+              private toastr: ToastrService,
+              private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.fetch((data) => {
       this.rows = data;
-      this.listCount= this.rows.length;
     });
-  
   }
 
-
   
+
   fetch(cb) {
     let that = this;
     that.http
-    .get(`${environment.apiUrl}/api/Configs/GetAllBank`)
+    .get(`${environment.apiUrl}/api/TextileGarments/GetAllColor`)
     .subscribe(res => {
       this.response = res;
-     
+      this.listCount = this.fetch.length;
     if(this.response.success==true)
     {
     that.data =this.response.data;
@@ -58,9 +56,10 @@ export class BankComponent implements OnInit {
   }
 
 
-  deleteBank(id)
+
+  deleteColor(id)
   {
-    this.http.delete(`${environment.apiUrl}/api/Configs/DeleteBank/`+id.id )
+    this.http.delete(`${environment.apiUrl}/api/TextileGarments/DeleteColor/`+id.id )
     .subscribe(
       res=> { 
         this.response = res;
@@ -84,17 +83,14 @@ export class BankComponent implements OnInit {
 
 
 
-
-  
-  addBankForm(){
-    const modalRef = this.modalService.open(AddBankComponent, { centered: true });
+  addColorForm(){
+    const modalRef = this.modalService.open(AddColorComponent, { centered: true });
           modalRef.result.then((data) => {
          // on close
           if(data ==true){
           //  this.date = this.myDate;
            this.fetch((data) => {
             this.rows = data;
-        
           });
            
   
@@ -105,8 +101,8 @@ export class BankComponent implements OnInit {
   } 
   
 
-  editEditForm(row){
-    const modalRef = this.modalService.open(EditBankComponent, { centered: true });
+  editColorForm(row){
+    const modalRef = this.modalService.open(EditColorComponent, { centered: true });
     modalRef.componentInstance.userId =row.id;
           modalRef.result.then((data) => {
          // on close
@@ -114,7 +110,6 @@ export class BankComponent implements OnInit {
           //  this.date = this.myDate;
            this.fetch((data) => {
             this.rows = data;
-            
           });
            
          }

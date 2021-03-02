@@ -8,6 +8,13 @@ import { CityComponent } from './city/city.component';
 import { CountryComponent } from './country/country.component';
 import { CurrencyComponent } from './currency/currency.component';
 import { ForeignAgentComponent } from './foreign-agent/foreign-agent.component';
+import { CertificateComponent } from './home-textile/certificate/certificate.component';
+import { ColorComponent } from './home-textile/color/color.component';
+import { DesignTypeComponent } from './home-textile/design-type/design-type.component';
+import { LoomTypeComponent } from './home-textile/loom-type/loom-type.component';
+import { ProcessTypeComponent } from './home-textile/process-type/process-type.component';
+import { ProcessComponent } from './home-textile/process/process.component';
+import { TimeActionItemsComponent } from './home-textile/time-action-items/time-action-items.component';
 import { FabricTypeComponent } from './product/fabric-type/fabric-type.component';
 import { PackingComponent } from './product/packing/packing.component';
 import { PaymentTermComponent } from './product/payment-term/payment-term.component';
@@ -25,6 +32,13 @@ const routes: Routes = [
       {path: 'packing', component: PackingComponent},
       {path: 'price-term', component: PriceTermComponent},
       {path: 'payment-term', component: PaymentTermComponent},
+      {path: 'certificate', component: CertificateComponent},
+      {path: 'color', component: ColorComponent},
+      {path: 'design-type', component: DesignTypeComponent},
+      {path: 'loom-type', component: LoomTypeComponent},
+      {path: 'process', component: ProcessComponent},
+      {path: 'process-type', component: ProcessTypeComponent},
+      {path: 'time-action-items', component: TimeActionItemsComponent},
       {path: 'bank', component: BankComponent},
       {path: 'bank-accounts', component: BankAccountsComponent},
       {path: 'city', component: CityComponent},

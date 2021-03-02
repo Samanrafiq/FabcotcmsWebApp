@@ -4,22 +4,28 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
+
 @Component({
-  selector: 'app-edit-bank',
-  templateUrl: './edit-bank.component.html',
-  styleUrls: ['./edit-bank.component.css']
+  selector: 'app-edit-process-type',
+  templateUrl: './edit-process-type.component.html',
+  styleUrls: ['./edit-process-type.component.css']
 })
-export class EditBankComponent implements OnInit {
+export class EditProcessTypeComponent implements OnInit {
+
+ 
   data:any={};
   response: any;
   @Input() userId;
   
+
   constructor(private http:HttpClient,
     private toastr: ToastrService,
     private _NgbActiveModal: NgbActiveModal) { }
 
+
+
   ngOnInit(): void {
-    this.editBank();
+    this.editProcessType();
   }
 
   
@@ -27,10 +33,10 @@ export class EditBankComponent implements OnInit {
     return this._NgbActiveModal;
   }
 
-
-  editBank()
+   
+  editProcessType()
   {
-    this.http.get(`${environment.apiUrl}/api/Configs/GetBankById/`+this.userId )
+    this.http.get(`${environment.apiUrl}/api/TextileGarments/GetProcessTypeById/`+this.userId )
     .subscribe(
       res=> { 
         this.response = res;
@@ -49,20 +55,15 @@ export class EditBankComponent implements OnInit {
   }
 
 
-  
-  UpdateBank()
+  UpdateProcessType()
   {
-    let varr=  {
-      "name": this.data.name,
-      "branchCode":this.data.branchCode,
-      "branchName":this.data.branchName ,
-      "location":this.data.location,
-      "address":this.data.address,
-      "details":this.data.details
+    let varr = {
+      "type": this.data.type,
+      "description": this.data.description
     }
 
     this.http.
-    put(`${environment.apiUrl}/api/Configs/UpdateBank/`+this.userId,varr)
+    put(`${environment.apiUrl}/api/TextileGarments/UpdateProcessType/`+this.userId,varr)
     .subscribe(
       res=> { 
   
@@ -82,7 +83,4 @@ export class EditBankComponent implements OnInit {
       });
   }
 
-
-
 }
-

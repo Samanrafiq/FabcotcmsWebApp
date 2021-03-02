@@ -2,7 +2,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-12">
-          <h3 class="m-0 ">Bank </h3>
+          <h3 class="m-0 ">Loom Type </h3>
         </div><!-- /.col -->
       </div><!-- /.row -->
     </div><!-- /.container-fluid -->
@@ -14,78 +14,62 @@
         <table class="table">
             <tbody>
                 <tr>
-                    <td  >
+                    <td>
                         <button type="button" class="btn btn-primary m-r-sm text-s-md px-3"> 
                         <i class="fas fa-user-tie"></i>{{listCount}}</button>
-                        <span class="text-muted text">Banks</span>
+                        <span class="text-muted text">Loom Type</span>
                     </td>
                     <td>
                         <button type="button" class="btn  m-r-sm text-s-md px-3"> </button>
                         <span class="text-muted text"></span>
                     </td>
                     <td >
-                        <button type="button" class="btn btn-primary btn-md float-right" (click)="addBankForm()" >
-                          <i class="fa fa-plus" ></i> Add New Bank</button>
+                        <button type="button" class="btn btn-primary btn-md float-right" (click)="addLoomForm()"
+                        ><i class="fa fa-plus"></i> Add New Type</button>
                     </td>
                 </tr>
             </tbody>
         </table>
 
 
-
         <ngx-datatable #myTable class="material" [columns]="columns" [rows]="rows" [columnMode]="'force'" 
         [headerHeight]="50" [footerHeight]="50"
         [rowHeight]="'auto'" [limit]="10">
 
-      <ngx-datatable-column name="S. No." [width]="20" > 
+      <ngx-datatable-column name="S. No." [width]="5" prop="code" > 
           <ng-template let-row="row"  ngx-datatable-cell-template>
             {{row.id}}
           </ng-template>
         </ngx-datatable-column>
-        <ngx-datatable-column name="Bank Name" [width]="80">
+        <ngx-datatable-column name="Loom Types" [width]="40">
           <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
-            {{row.name}}
+            {{row.type}}
           </ng-template>
         </ngx-datatable-column>
-        <ngx-datatable-column name="Branch Code" [width]="80">
+        <ngx-datatable-column name="Details" [width]="20">
           <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
-            {{row.branchCode}}
+            {{row.description}}
           </ng-template>
         </ngx-datatable-column>
-        <ngx-datatable-column name="Branch Name" [width]="80">
+        <ngx-datatable-column name="Status" [width]="10">
           <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
-            {{row.branchName}}
+            {{row.description}}
           </ng-template>
         </ngx-datatable-column>
-        <ngx-datatable-column name="Location" [width]="80">
+        <ngx-datatable-column name="Changed On | Changed By" [width]="80">
           <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
-            {{row.location}}
+            {{myDate | date:'medium'}}
           </ng-template>
         </ngx-datatable-column>
-        <ngx-datatable-column name="Address" [width]="80">
-            <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
-              {{row.address}}
-            </ng-template>
-          </ngx-datatable-column>
-          <ngx-datatable-column name="Details" [width]="80">
-            <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
-              {{row.details}}
-            </ng-template>
-          </ngx-datatable-column>
         <ngx-datatable-column name="Action" [width]="80">
           <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
-            <button type="button" class="btn editIconBack" (click)="editEditForm(row)">
+            <button type="button" class="btn editIconBack" (click)="editLoomForm(row)">
               <i class="far fa-edit "></i>
             </button>
-            <button type="button" class="btn deleteIconBack"  (click)="deleteBank(row)">
+            <button type="button" class="btn deleteIconBack" (click)="deleteColor(row)">
               <i class="far fa-trash-alt"></i>
             </button>
           </ng-template>
         </ngx-datatable-column>
-        
       </ngx-datatable>      
 
-
-
-
-        

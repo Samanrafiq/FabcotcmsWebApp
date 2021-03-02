@@ -5,11 +5,11 @@ import { environment } from 'src/environments/environment';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-edit-bank',
-  templateUrl: './edit-bank.component.html',
-  styleUrls: ['./edit-bank.component.css']
+  selector: 'app-edit-loom-type',
+  templateUrl: './edit-loom-type.component.html',
+  styleUrls: ['./edit-loom-type.component.css']
 })
-export class EditBankComponent implements OnInit {
+export class EditLoomTypeComponent implements OnInit {
   data:any={};
   response: any;
   @Input() userId;
@@ -19,18 +19,16 @@ export class EditBankComponent implements OnInit {
     private _NgbActiveModal: NgbActiveModal) { }
 
   ngOnInit(): void {
-    this.editBank();
   }
 
-  
   get activeModal() {
     return this._NgbActiveModal;
   }
 
 
-  editBank()
+  editLoom()
   {
-    this.http.get(`${environment.apiUrl}/api/Configs/GetBankById/`+this.userId )
+    this.http.get(`${environment.apiUrl}​/api/TextileGarments/GetLoomTypeById/`+this.userId )
     .subscribe(
       res=> { 
         this.response = res;
@@ -48,21 +46,16 @@ export class EditBankComponent implements OnInit {
       });
   }
 
-
   
-  UpdateBank()
+  UpdateLoom()
   {
-    let varr=  {
-      "name": this.data.name,
-      "branchCode":this.data.branchCode,
-      "branchName":this.data.branchName ,
-      "location":this.data.location,
-      "address":this.data.address,
-      "details":this.data.details
+    let varr = {
+      "type": this.data.type,
+      "description": this.data.description
     }
 
     this.http.
-    put(`${environment.apiUrl}/api/Configs/UpdateBank/`+this.userId,varr)
+    put(`${environment.apiUrl}/api/TextileGarments/Update/`+this.userId,varr)
     .subscribe(
       res=> { 
   
@@ -81,8 +74,6 @@ export class EditBankComponent implements OnInit {
         }
       });
   }
-
-
 
 }
 

@@ -5,32 +5,32 @@ import { environment } from 'src/environments/environment';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
-  selector: 'app-edit-bank',
-  templateUrl: './edit-bank.component.html',
-  styleUrls: ['./edit-bank.component.css']
+  selector: 'app-edit-certificate',
+  templateUrl: './edit-certificate.component.html',
+  styleUrls: ['./edit-certificate.component.css']
 })
-export class EditBankComponent implements OnInit {
+export class EditCertificateComponent implements OnInit {
   data:any={};
   response: any;
   @Input() userId;
-  
+
   constructor(private http:HttpClient,
     private toastr: ToastrService,
     private _NgbActiveModal: NgbActiveModal) { }
 
   ngOnInit(): void {
-    this.editBank();
+    this.editCertificate();
   }
 
-  
   get activeModal() {
     return this._NgbActiveModal;
   }
 
 
-  editBank()
+ 
+  editCertificate()
   {
-    this.http.get(`${environment.apiUrl}/api/Configs/GetBankById/`+this.userId )
+    this.http.get(`${environment.apiUrl}/api/TextileGarments/GetCertificateById/`+this.userId )
     .subscribe(
       res=> { 
         this.response = res;
@@ -49,20 +49,15 @@ export class EditBankComponent implements OnInit {
   }
 
 
-  
-  UpdateBank()
+  UpdateCertificate()
   {
-    let varr=  {
+    let varr = {
       "name": this.data.name,
-      "branchCode":this.data.branchCode,
-      "branchName":this.data.branchName ,
-      "location":this.data.location,
-      "address":this.data.address,
-      "details":this.data.details
+      "description": this.data.description
     }
 
     this.http.
-    put(`${environment.apiUrl}/api/Configs/UpdateBank/`+this.userId,varr)
+    put(`${environment.apiUrl}/api/TextileGarments/UpdateCertificate/`+this.userId,varr)
     .subscribe(
       res=> { 
   
@@ -82,7 +77,4 @@ export class EditBankComponent implements OnInit {
       });
   }
 
-
-
 }
-

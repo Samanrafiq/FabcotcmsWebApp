@@ -16,8 +16,8 @@ export class EditArticleComponent implements OnInit {
 
 
   constructor(private http:HttpClient,
-    private toastr: ToastrService,
-    private _NgbActiveModal: NgbActiveModal) { }
+              private toastr: ToastrService,
+              private _NgbActiveModal: NgbActiveModal) { }
 
   ngOnInit(): void {
     this.editArticle();

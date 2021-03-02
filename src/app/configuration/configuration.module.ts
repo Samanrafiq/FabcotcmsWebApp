@@ -46,6 +46,29 @@ import { BankComponent } from './bank-info/bank/bank.component';
 import { BankAccountsComponent } from './bank-info/bank-accounts/bank-accounts.component';
 import { AddBankComponent } from './bank-info/bank/add-bank/add-bank.component';
 import { EditBankComponent } from './bank-info/bank/edit-bank/edit-bank.component';
+import { AddBankAccountComponent } from './bank-info/bank-accounts/add-bank-account/add-bank-account.component';
+import { EditBankAccountComponent } from './bank-info/bank-accounts/edit-bank-account/edit-bank-account.component';
+import { ProcessComponent } from './home-textile/process/process.component';
+import { ProcessTypeComponent } from './home-textile/process-type/process-type.component';
+import { DesignTypeComponent } from './home-textile/design-type/design-type.component';
+import { LoomTypeComponent } from './home-textile/loom-type/loom-type.component';
+import { CertificateComponent } from './home-textile/certificate/certificate.component';
+import { ColorComponent } from './home-textile/color/color.component';
+import { TimeActionItemsComponent } from './home-textile/time-action-items/time-action-items.component';
+import { AddCertificateComponent } from './home-textile/certificate/add-certificate/add-certificate.component';
+import { EditCertificateComponent } from './home-textile/certificate/edit-certificate/edit-certificate.component';
+import { EditColorComponent } from './home-textile/color/edit-color/edit-color.component';
+import { AddColorComponent } from './home-textile/color/add-color/add-color.component';
+import { AddDesignTypeComponent } from './home-textile/design-type/add-design-type/add-design-type.component';
+import { EditDesignTypeComponent } from './home-textile/design-type/edit-design-type/edit-design-type.component';
+import { AddLoomTypeComponent } from './home-textile/loom-type/add-loom-type/add-loom-type.component';
+import { EditLoomTypeComponent } from './home-textile/loom-type/edit-loom-type/edit-loom-type.component';
+import { EditProcessComponent } from './home-textile/process/edit-process/edit-process.component';
+import { AddProcessComponent } from './home-textile/process/add-process/add-process.component';
+import { AddProcessTypeComponent } from './home-textile/process-type/add-process-type/add-process-type.component';
+import { EditProcessTypeComponent } from './home-textile/process-type/edit-process-type/edit-process-type.component';
+import { EditTimeActionComponent } from './home-textile/time-action-items/edit-time-action/edit-time-action.component';
+import { AddTimeActionComponent } from './home-textile/time-action-items/add-time-action/add-time-action.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +81,7 @@ import { EditBankComponent } from './bank-info/bank/edit-bank/edit-bank.componen
     EditAgentFormComponent, 
     BuyerComponent, 
     AddBuyerComponent, 
-    EditBuyerComponent, ArticlesComponent, AddArticleComponent, EditArticleComponent, CityComponent, CountryComponent, CurrencyComponent, AddCityComponent, EditCityComponent, EditCountryComponent, AddCountryComponent, FabricTypeComponent, PackingComponent, PaymentTermComponent, AddTypeComponent, EditTypeComponent, EditPackingComponent, AddPackingComponent, AddPaymentComponent, EditPaymentComponent, PriceTermComponent, AddPriceComponent, EditPriceComponent, BankComponent, BankAccountsComponent, AddBankComponent, EditBankComponent, 
+    EditBuyerComponent, ArticlesComponent, AddArticleComponent, EditArticleComponent, CityComponent, CountryComponent, CurrencyComponent, AddCityComponent, EditCityComponent, EditCountryComponent, AddCountryComponent, FabricTypeComponent, PackingComponent, PaymentTermComponent, AddTypeComponent, EditTypeComponent, EditPackingComponent, AddPackingComponent, AddPaymentComponent, EditPaymentComponent, PriceTermComponent, AddPriceComponent, EditPriceComponent, BankComponent, BankAccountsComponent, AddBankComponent, EditBankComponent, AddBankAccountComponent, EditBankAccountComponent, ProcessComponent, ProcessTypeComponent, DesignTypeComponent, LoomTypeComponent, CertificateComponent, ColorComponent, TimeActionItemsComponent, AddCertificateComponent, EditCertificateComponent, EditColorComponent, AddColorComponent, AddDesignTypeComponent, EditDesignTypeComponent, AddLoomTypeComponent, EditLoomTypeComponent, EditProcessComponent, AddProcessComponent, AddProcessTypeComponent, EditProcessTypeComponent, EditTimeActionComponent, AddTimeActionComponent, 
   
   
   ],
