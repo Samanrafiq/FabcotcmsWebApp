@@ -10,25 +10,12 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { ConfigurationModule } from './configuration/configuration.module';
 import { HomeComponent } from './home/home.component';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 
 
 const appRoutes: Routes = [
-  // {path: 'home', component: UserHomeComponent},
-  // {path: 'buyer', component: BuyerComponent},
-  // {path: 'seller', component: SellerComponent},
-  // {path: 'article', component: ArticleComponent},
-  // {path: 'city-location', component: CityLocationComponent},
-  // {path: 'country', component: CountryComponent},
-  // {path: 'currency-rate', component: CurrencyRateComponent},
-  // {path: 'foreignAgent', component: ForeignExternalAgentsComponent},
-  // {path: 'generalsettings', component: GeneralSettingsComponent},
-  // {path: 'notificationsettings', component: NotificationSettingsComponent},
-  // {path: 'organization', component: OrganizationComponent},
-  // {path: 'product', component: ProductComponent},
-  // {path: 'textile', component: TextileGarmentsComponent},
-  // {path: 'bankInfo', component: BankInfoComponent},
-  // {path: '', redirectTo: '/home', pathMatch: 'full'}
+
   ]
 
 
@@ -49,7 +36,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    
+    NgxDatatableModule,
     RouterModule.forRoot(appRoutes),
     ToastrModule.forRoot({
       progressBar: true,
