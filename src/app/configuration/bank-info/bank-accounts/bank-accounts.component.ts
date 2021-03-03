@@ -24,64 +24,61 @@ export class BankAccountsComponent implements OnInit {
     private modalService: NgbModal,) { }
 
   ngOnInit(): void {
-    // this.fetch((data) => {
-    //   this.rows = data;
-    //   this.listCount= this.rows.length;
-    // });
+    this.fetch((data) => {
+      this.rows = data;
+      this.listCount= this.rows.length;
+    });
   }
 
   
-//   fetch(cb) {
-//     let that = this;
-//     that.http
-//     .get(`${environment.apiUrl}/api/Configs/GetAllBank`)
-//     .subscribe(res => {
-//       this.response = res;
+  fetch(cb) {
+    
+    this.http
+    .get(`${environment.apiUrl}/api/Configs/GetAllBankAccount`)
+    .subscribe(res => {
+      this.response = res;
      
-//     if(this.response.success==true)
-//     {
-//     that.data =this.response.data;
-//     cb(this.data);
-//     }
-//     else{
-//       this.toastr.error(this.response.message, 'Message.');
-//     }
-//       // this.spinner.hide();
-//     }, err => {
-//       if ( err.status == 400) {
-//  this.toastr.error(err.error.message, 'Message.');;
-//       }
-//     //  this.spinner.hide();
-//     });
-//   }
+    if(this.response.success==true)
+    {
+    this.data =this.response.data;
+    cb(this.data);
+    }
+    else{
+      this.toastr.error(this.response.message, 'Message.');
+    }
+      // this.spinner.hide();
+    }, err => {
+      if ( err.status == 400) {
+ this.toastr.error(err.error.message, 'Message.');;
+      }
+    //  this.spinner.hide();
+    });
+  }
 
 
-  // deleteAccount(id)
-  // {
-  //   this.http.delete(`${environment.apiUrl}/api/Configs/DeleteBank/`+id.id )
-  //   .subscribe(
-  //     res=> { 
-  //       this.response = res;
-  //       if (this.response.success == true){
-  //        this.toastr.error(this.response.message, 'Message.');
-  //        this.fetch((data) => {
-  //         this.rows = data;
-  //       });
+  deleteAccount(id)
+  {
+    this.http.delete(`${environment.apiUrl}/api/Configs/DeleteBankAccount/`+id.id )
+    .subscribe(
+      res=> { 
+        this.response = res;
+        if (this.response.success == true){
+         this.toastr.error(this.response.message, 'Message.');
+         this.fetch((data) => {
+          this.rows = data;
+        });
           
-  //       }
-  //       else {
-  //         this.toastr.error('Something went Worng', 'Message.');
-  //           }
+        }
+        else {
+          this.toastr.error('Something went Worng', 'Message.');
+            }
  
-  //     }, err => {
-  //       if (err.status == 400) {
-  //         this.toastr.error(this.response.message, 'Message.');
-  //       }
-  //     });
-  // }
-
-
-
+      }, err => {
+        if (err.status == 400) {
+          this.toastr.error(this.response.message, 'Message.');
+        }
+      });
+  }
 
   
   addAccountForm(){
@@ -89,11 +86,10 @@ export class BankAccountsComponent implements OnInit {
           modalRef.result.then((data) => {
          // on close
           if(data ==true){
-          //  this.date = this.myDate;
-          //  this.fetch((data) => {
-          //   this.rows = data;
+           this.fetch((data) => {
+            this.rows = data;
         
-          // });
+          });
            
   
          }
@@ -109,11 +105,10 @@ export class BankAccountsComponent implements OnInit {
           modalRef.result.then((data) => {
          // on close
           if(data ==true){
-          //  this.date = this.myDate;
-          //  this.fetch((data) => {
-          //   this.rows = data;
+           this.fetch((data) => {
+            this.rows = data;
             
-          // });
+          });
            
          }
        }, (reason) => {

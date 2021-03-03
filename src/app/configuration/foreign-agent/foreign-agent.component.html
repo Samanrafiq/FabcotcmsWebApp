@@ -82,7 +82,7 @@
         </ngx-datatable-column>
         <ngx-datatable-column name="Action" [width]="80">
           <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
-            <button type="button" class="btn editIconBack" (click)="editAgentForm()">
+            <button type="button" class="btn editIconBack" (click)="editAgentForm(row)">
               <i class="far fa-edit "></i>
             </button>
             <button type="button" class="btn deleteIconBack" (click)="deleteAgent(row)">

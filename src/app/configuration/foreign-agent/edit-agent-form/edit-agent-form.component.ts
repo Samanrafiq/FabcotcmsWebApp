@@ -20,7 +20,8 @@ export class EditAgentFormComponent implements OnInit {
               private _NgbActiveModal: NgbActiveModal) { }
 
   ngOnInit(): void {
-  }
+    this.editAgent( );
+  } 
 
   get activeModal() {
     return this._NgbActiveModal;
@@ -28,9 +29,9 @@ export class EditAgentFormComponent implements OnInit {
 
 
 
-  editAgent(id)
+  editAgent()
   {
-    this.http.get(`${environment.apiUrl}/api/Configs/GetExternalAgentById/`+id )
+    this.http.get(`${environment.apiUrl}/api/Configs/GetExternalAgentById/`+this.userId )
     .subscribe(
       res=> { 
         this.response = res;
@@ -43,7 +44,7 @@ export class EditAgentFormComponent implements OnInit {
 
       }, err => {
         if (err.status == 400) {
-          this.toastr.error('Something went Worng', 'Message.');
+          this.toastr.error(this.response.message, 'Message.');
         }
       });
   }

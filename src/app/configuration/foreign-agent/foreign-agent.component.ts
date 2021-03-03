@@ -102,8 +102,9 @@ export class ForeignAgentComponent implements OnInit {
   
 
 
-  editAgentForm(){
+  editAgentForm(row){
     const modalRef = this.modalService.open(EditAgentFormComponent, { centered: true });
+    modalRef.componentInstance.userId = row.id;
           modalRef.result.then((data) => {
          // on close
           if(data ==true){

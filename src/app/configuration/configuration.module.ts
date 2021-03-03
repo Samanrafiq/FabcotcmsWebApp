@@ -68,6 +68,8 @@ import { AddProcessTypeComponent } from './home-textile/process-type/add-process
 import { EditProcessTypeComponent } from './home-textile/process-type/edit-process-type/edit-process-type.component';
 import { EditTimeActionComponent } from './home-textile/time-action-items/edit-time-action/edit-time-action.component';
 import { AddTimeActionComponent } from './home-textile/time-action-items/add-time-action/add-time-action.component';
+import { AddCurrencyComponent } from './currency/add-currency/add-currency.component';
+import { EditCurrencyComponent } from './currency/edit-currency/edit-currency.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +82,7 @@ import { AddTimeActionComponent } from './home-textile/time-action-items/add-tim
     EditAgentFormComponent, 
     BuyerComponent, 
     AddBuyerComponent, 
-    EditBuyerComponent, ArticlesComponent, AddArticleComponent, EditArticleComponent, CityComponent, CountryComponent, CurrencyComponent, AddCityComponent, EditCityComponent, EditCountryComponent, AddCountryComponent, FabricTypeComponent, PackingComponent, PaymentTermComponent, AddTypeComponent, EditTypeComponent, EditPackingComponent, AddPackingComponent, AddPaymentComponent, EditPaymentComponent, PriceTermComponent, AddPriceComponent, EditPriceComponent, BankComponent, BankAccountsComponent, AddBankComponent, EditBankComponent, AddBankAccountComponent, EditBankAccountComponent, ProcessComponent, ProcessTypeComponent, DesignTypeComponent, LoomTypeComponent, CertificateComponent, ColorComponent, TimeActionItemsComponent, AddCertificateComponent, EditCertificateComponent, EditColorComponent, AddColorComponent, AddDesignTypeComponent, EditDesignTypeComponent, AddLoomTypeComponent, EditLoomTypeComponent, EditProcessComponent, AddProcessComponent, AddProcessTypeComponent, EditProcessTypeComponent, EditTimeActionComponent, AddTimeActionComponent, 
+    EditBuyerComponent, ArticlesComponent, AddArticleComponent, EditArticleComponent, CityComponent, CountryComponent, CurrencyComponent, AddCityComponent, EditCityComponent, EditCountryComponent, AddCountryComponent, FabricTypeComponent, PackingComponent, PaymentTermComponent, AddTypeComponent, EditTypeComponent, EditPackingComponent, AddPackingComponent, AddPaymentComponent, EditPaymentComponent, PriceTermComponent, AddPriceComponent, EditPriceComponent, BankComponent, BankAccountsComponent, AddBankComponent, EditBankComponent, AddBankAccountComponent, EditBankAccountComponent, ProcessComponent, ProcessTypeComponent, DesignTypeComponent, LoomTypeComponent, CertificateComponent, ColorComponent, TimeActionItemsComponent, AddCertificateComponent, EditCertificateComponent, EditColorComponent, AddColorComponent, AddDesignTypeComponent, EditDesignTypeComponent, AddLoomTypeComponent, EditLoomTypeComponent, EditProcessComponent, AddProcessComponent, AddProcessTypeComponent, EditProcessTypeComponent, EditTimeActionComponent, AddTimeActionComponent, AddCurrencyComponent, EditCurrencyComponent, 
   
   
   ],

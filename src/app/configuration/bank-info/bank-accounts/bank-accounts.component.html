@@ -24,7 +24,7 @@
                         <span class="text-muted text"></span>
                     </td>
                     <td >
-                        <button type="button" class="btn btn-primary btn-md float-right">
+                        <button type="button" class="btn btn-primary btn-md float-right" (click)="addAccountForm()"  >
                           <i class="fa fa-plus" ></i> Add New Account</button>
                     </td>
                 </tr>
@@ -44,32 +44,32 @@
         </ngx-datatable-column>
         <ngx-datatable-column name="Account Name" [width]="80">
           <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
-            {{row.name}}
+            {{row.accountName}}
           </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column name="Account No" [width]="80">
           <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
-            {{row.branchCode}}
+            {{row.accountNumber}}
           </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column name="IBAN" [width]="80">
           <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
-            {{row.branchName}}
+            {{row.iban}}
           </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column name="Swift Code" [width]="80">
           <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
-            {{row.location}}
+            {{row.swiftCode}}
           </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column name="Account Type" [width]="80">
             <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
-              {{row.address}}
+              {{row.type}}
             </ng-template>
           </ngx-datatable-column>
           <ngx-datatable-column name="Bank" [width]="80">
             <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
-              {{row.details}}
+              {{row.bankId}}
             </ng-template>
           </ngx-datatable-column>
           <ngx-datatable-column name="Branch" [width]="80">
@@ -79,10 +79,10 @@
           </ngx-datatable-column>
         <ngx-datatable-column name="Action" [width]="80">
           <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
-            <button type="button" class="btn editIconBack" >
+            <button type="button" class="btn editIconBack" (click)=" editAccountForm(row)">
               <i class="far fa-edit "></i>
             </button>
-            <button type="button" class="btn deleteIconBack"  >
+            <button type="button" class="btn deleteIconBack" (click)="deleteAccount(row)" >
               <i class="far fa-trash-alt"></i>
             </button>
           </ng-template>
