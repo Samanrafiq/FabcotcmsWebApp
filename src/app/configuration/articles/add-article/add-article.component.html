@@ -12,16 +12,7 @@
   <div class="modal-body">
     <form #addAgentForm="ngForm" novalidate>
  
-
-          <div class="form-group row" [class.has-error]="code.invalid && code.touched">
-            <label for="code" class="col-sm-3 col-form-label control-label">Article Code </label>
-            <div class="col-sm-9">
-              <input required id="code" type="text" class="form-control" placeholder="Name" name="code"
-                [(ngModel)]="data.code" #code="ngModel" [ngClass]="{'error': code.invalid && code.touched}">
-            </div>
-          </div>
-
-      <div class="form-group row" [class.has-error]="code.invalid && code.touched">
+      <div class="form-group row" [class.has-error]="name.invalid && name.touched">
         <label for="code" class="col-sm-3 col-form-label control-label">Article Name </label>
         <div class="col-sm-9">
           <input required id="name" type="text" class="form-control" placeholder="Name" name="name"

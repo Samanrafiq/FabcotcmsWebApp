@@ -10,17 +10,7 @@
     </button>
   
     </div>
-  
-    <div class="modal-body" id="popEditForm">
-      <div class="form-group row" [class.has-error]="code.invalid && code.touched">
-        <label for="code" class="col-sm-3 col-form-label control-label">Buyer Code <span>*</span></label>
-        <div class="col-sm-9">
-          <input required id="buyerCode" type="text" class="form-control " placeholder="Code" name="buyerCode"
-            [(ngModel)]="data.buyerCode" #code="ngModel" [ngClass]="{'error': code.invalid && code.touched}">
-        </div>
-      </div>
-  
-  
+ 
       <div class="form-group row">
         <label for="name" class="col-sm-3 col-form-label">Buyer Name<span>*</span></label>
         <div class="col-sm-9">
@@ -118,7 +108,7 @@
           </select>
         </div>
       </div>
-    </div>
+  
   
     <div class="modal-footer bg-light">
   

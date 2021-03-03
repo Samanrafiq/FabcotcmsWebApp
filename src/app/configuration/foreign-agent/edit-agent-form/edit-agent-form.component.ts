@@ -54,7 +54,6 @@ export class EditAgentFormComponent implements OnInit {
     let varr=  {
       "agentTypeId": this.data.agentTypeId,
       "agentSideId": this.data.agentSideId,
-      "code": this.data.code,
       "name": this.data.name,
       "address": this.data.address,
       "cityId": this.data.cityId,

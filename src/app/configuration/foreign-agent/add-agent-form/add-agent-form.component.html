@@ -3,9 +3,9 @@
   <div class="modal-header">
     <h5 class="modal-title">
       <i class="far fa-edit"></i>
-      Add new Buyer
+      Add new Agent
     </h5>
-    <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="activeModal.close()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
@@ -41,19 +41,12 @@
           </div>
 
 
-          <div class="form-group row" [class.has-error]="code.invalid && code.touched">
-            <label for="code" class="col-sm-3 col-form-label control-label">Code <span>*</span></label>
-            <div class="col-sm-9">
-              <input required id="code" type="text" class="form-control" placeholder="Name" name="code"
-                [(ngModel)]="data.code" #code="ngModel" [ngClass]="{'error': code.invalid && code.touched}">
-            </div>
-          </div>
-
-      <div class="form-group row" [class.has-error]="code.invalid && code.touched">
+    
+      <div class="form-group row" [class.has-error]="name.invalid && name.touched">
         <label for="code" class="col-sm-3 col-form-label control-label">Name <span>*</span></label>
         <div class="col-sm-9">
           <input required id="name" type="text" class="form-control" placeholder="Name" name="name"
-            [(ngModel)]="data.name" #name="ngModel" [ngClass]="{'error': code.invalid && code.touched}">
+            [(ngModel)]="data.name" #name="ngModel" [ngClass]="{'error': name.invalid && name.touched}">
         </div>
       </div>
 
@@ -99,15 +92,13 @@
       </div>
  
 
-      <div class="form-group row" [class.has-error]="code.invalid && code.touched">
-        <label for="code" class="col-sm-3 col-form-label control-label">Bank <span>*</span></label>
+        <label for="bankName" class="col-sm-3 col-form-label control-label">Bank </label>
         <div class="col-sm-9">
           <input required id="bankName" type="text" class="form-control " placeholder="Code" name="bankName"
-            [(ngModel)]="data.bankName" #bankName="ngModel" [ngClass]="{'error': bankName.invalid && bankName.touched}">
+            [(ngModel)]="data.bankName" #bankName="ngModel">
         </div>
-      </div>
 
-      <div class="form-group row" [class.has-error]="code.invalid && code.touched">
+
         <label for="accountNumber" class="col-sm-3 col-form-label control-label">Agent <span>*</span></label>
         <div class="col-sm-9">
           <input required id="accountNumber" type="text" class="form-control " placeholder="Account Number" name="accountNumber"
@@ -117,9 +108,9 @@
             <input required id="accountTitle" type="text" class="form-control " placeholder="Account Name" name="accountTitle"
               [(ngModel)]="data.accountTitle" #accountTitle="ngModel" [ngClass]="{'error': accountTitle.invalid && accountTitle.touched}">
           </div>
-      </div>
+      
 
-      <div class="form-group row" [class.has-error]="code.invalid && code.touched">
+      <div class="form-group row" [class.has-error]="swiftCode.invalid && swiftCode.touched">
         <label for="swiftCode" class="col-sm-3 col-form-label control-label">Swift <span>*</span></label>
         <div class="col-sm-9">
           <input required id="swiftCode" type="text" class="form-control " placeholder="Code" name="swiftCode"
@@ -137,7 +128,7 @@
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" >Close</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="activeModal.close()">Close</button>
         <button class="btn button-save" type="submit" (click)="addAgent()">
           Add Agent
         </button>

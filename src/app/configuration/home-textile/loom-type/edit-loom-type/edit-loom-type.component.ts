@@ -19,6 +19,7 @@ export class EditLoomTypeComponent implements OnInit {
     private _NgbActiveModal: NgbActiveModal) { }
 
   ngOnInit(): void {
+    this.editLoom();
   }
 
   get activeModal() {
@@ -28,7 +29,7 @@ export class EditLoomTypeComponent implements OnInit {
 
   editLoom()
   {
-    this.http.get(`${environment.apiUrl}​/api/TextileGarments/GetLoomTypeById/`+this.userId )
+    this.http.get(`${environment.apiUrl}/api/TextileGarments/GetLoomTypeById/`+this.userId )
     .subscribe(
       res=> { 
         this.response = res;

@@ -31,7 +31,25 @@ export class EditDesignTypeComponent implements OnInit {
  
   editDesign()
   {
-    this.http.get(`${environment.apiUrl}​/api​/TextileGarments​/GetDesignTypeById​/`+this.userId )
+    // this.
+    // http.
+    // get(`${environment.apiUrl}​/api​/TextileGarments​/GetDesignTypeById​/`+this.userId )
+    // .subscribe(
+    //   res=> { 
+    //     this.response = res;
+    //     if (this.response.success == true){
+    //       this.data =this.response.data; 
+    //     }
+    //     else {
+    //       this.toastr.error('Something went Worng', 'Message.');
+    //         }
+
+    //   }, err => {
+    //     if (err.status == 400) {
+    //       this.toastr.error('Something went Worng', 'Message.');
+    //     }
+    //   });
+      this.http.get(`${environment.apiUrl}/api/TextileGarments/GetDesignTypeById/`+this.userId )
     .subscribe(
       res=> { 
         this.response = res;

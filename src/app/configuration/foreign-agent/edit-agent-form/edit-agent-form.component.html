@@ -41,19 +41,13 @@
           </div>
 
 
-          <div class="form-group row" [class.has-error]="code.invalid && code.touched">
-            <label for="code" class="col-sm-3 col-form-label control-label">Code <span>*</span></label>
-            <div class="col-sm-9">
-              <input required id="code" type="text" class="form-control" placeholder="Name" name="code"
-                [(ngModel)]="data.code" #code="ngModel" [ngClass]="{'error': code.invalid && code.touched}">
-            </div>
-          </div>
+   
 
-      <div class="form-group row" [class.has-error]="code.invalid && code.touched">
-        <label for="code" class="col-sm-3 col-form-label control-label">Name <span>*</span></label>
+      <div class="form-group row" [class.has-error]="name.invalid && name.touched">
+        <label for="name" class="col-sm-3 col-form-label control-label">Name <span>*</span></label>
         <div class="col-sm-9">
           <input required id="name" type="text" class="form-control" placeholder="Name" name="name"
-            [(ngModel)]="data.name" #name="ngModel" [ngClass]="{'error': code.invalid && code.touched}">
+            [(ngModel)]="data.name" #name="ngModel" [ngClass]="{'error': name.invalid && name.touched}">
         </div>
       </div>
 
@@ -99,15 +93,15 @@
       </div>
  
 
-      <div class="form-group row" [class.has-error]="code.invalid && code.touched">
-        <label for="code" class="col-sm-3 col-form-label control-label">Bank <span>*</span></label>
+      <div class="form-group row" [class.has-error]="bankName.invalid && bankName.touched">
+        <label for="bankName" class="col-sm-3 col-form-label control-label">Bank <span>*</span></label>
         <div class="col-sm-9">
           <input required id="bankName" type="text" class="form-control " placeholder="Code" name="bankName"
             [(ngModel)]="data.bankName" #bankName="ngModel" [ngClass]="{'error': bankName.invalid && bankName.touched}">
         </div>
       </div>
 
-      <div class="form-group row" [class.has-error]="code.invalid && code.touched">
+      <div class="form-group row" [class.has-error]="accountNumber.invalid && accountNumber.touched">
         <label for="accountNumber" class="col-sm-3 col-form-label control-label">Agent <span>*</span></label>
         <div class="col-sm-9">
           <input required id="accountNumber" type="text" class="form-control " placeholder="Account Number" name="accountNumber"
@@ -119,7 +113,7 @@
           </div>
       </div>
 
-      <div class="form-group row" [class.has-error]="code.invalid && code.touched">
+      <div class="form-group row" [class.has-error]="swiftCode.invalid && swiftCode.touched">
         <label for="swiftCode" class="col-sm-3 col-form-label control-label">Swift <span>*</span></label>
         <div class="col-sm-9">
           <input required id="swiftCode" type="text" class="form-control " placeholder="Code" name="swiftCode"
