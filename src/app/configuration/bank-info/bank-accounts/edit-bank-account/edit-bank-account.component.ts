@@ -71,7 +71,7 @@ export class EditBankAccountComponent implements OnInit {
       }, err => {
         if (err.status == 400) {
           this.toastr.error('Something went Worng', 'Message.');
-        }
+        } 
       });
   }
 

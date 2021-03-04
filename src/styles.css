@@ -1,3 +1,38 @@
+/* NGX TABLE */
+@import "~@swimlane/ngx-datatable/index.css";
+@import "~@swimlane/ngx-datatable/themes/material.css";
+@import "~@swimlane/ngx-datatable/themes/dark.css";
+@import "~@swimlane/ngx-datatable/themes/bootstrap.css";
+@import "~@swimlane/ngx-datatable/assets/icons.css";
+
+.ngx-datatable .datatable-body-cell,
+.ngx-datatable .datatable-header-cell {
+  line-height: 2.1 !important;
+  text-align: center !important;
+}
+
+.ngx-datatable.bootstrap {
+  font-size: 16px !important;
+  font-weight: 300 !important;
+}
+
+.ngx-datatable.bootstrap .datatable-footer {
+  text-align: left !important;
+  font-style: italic;
+}
+
+.ngx-datatable.fixed-header
+  .datatable-header
+  .datatable-header-inner
+  .datatable-header-cell {
+  color: white !important;
+  font-style: italic !important;
+  background: #616161 !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+}
+/* ----------------------------------------------------------------------- */
+
 .innerBody {
   padding: 15px 15px 15px 15px;
 }

@@ -23,21 +23,34 @@
                         <button type="button" class="btn  m-r-sm text-s-md px-3"> </button>
                         <span class="text-muted text"></span>
                     </td>
+                   
+   
+
+
                     <td >
                         <button type="button" class="btn btn-primary btn-md float-right" 
                         (click)="addArticleForm()"><i class="fa fa-plus"></i> Add New Article</button>
                     </td>
                 </tr>
             </tbody>
+            <tbody>                    
+              
+              
+              <input type="text" style="width:30%;"
+                     placeholder="Search"
+                     (keyup)="updateFilter($event)" />
+                    
+                                      
+                    </tbody>
         </table>
 
 
 
-        <ngx-datatable #myTable class="material" [columns]="columns" [rows]="rows" [columnMode]="'force'" 
-        [headerHeight]="50" [footerHeight]="50"
-        [rowHeight]="'auto'" [limit]="10">
+        <ngx-datatable #myTable class="bootstrap" [columns]="columns" [rows]="rows" [columnMode]="'force'" 
+        [headerHeight]="50" [footerHeight]="50" [sorts]="[{prop: 'code', dir: 'asce'}]"
+        [rowHeight]="'auto'" [limit]="6">
 
-      <ngx-datatable-column name="Article Code" [width]="20" prop="code" > 
+      <ngx-datatable-column name="Article Code" [width]="5" prop="code" > 
           <ng-template let-row="row"  ngx-datatable-cell-template>
             {{row.code}}
           </ng-template>
@@ -52,22 +65,22 @@
             {{row.genericName}}
           </ng-template>
         </ngx-datatable-column>
-        <ngx-datatable-column name="Status" [width]="80" prop="address"> 
+        <ngx-datatable-column name="Status" [width]="5" prop="address"> 
           <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
             {{row.address}}
           </ng-template>
         </ngx-datatable-column>
-        <ngx-datatable-column name="Last Updated On" [width]="80">
+        <ngx-datatable-column name="Last Updated On" [width]="80" prop="modifiedDate">
           <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
             {{myDate | date:'medium'}}
           </ng-template>
         </ngx-datatable-column>
-        <ngx-datatable-column name="Last Updated By" [width]="80">
+        <ngx-datatable-column name="Last Updated By" [width]="80" prop="modifiedBy">
             <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
               {{myDate | date:'medium'}}
             </ng-template>
           </ngx-datatable-column>
-        <ngx-datatable-column name="Action" [width]="80">
+        <ngx-datatable-column name="Action" [width]="40" >
           <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
             <button type="button" class="btn editIconBack" (click)="editArticleForm(row)">
               <i class="far fa-edit "></i>

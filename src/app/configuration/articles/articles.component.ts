@@ -18,6 +18,7 @@ export class ArticlesComponent implements OnInit {
   data:any={};
   listCount: number;
   myDate=Date.now();
+  temp: any[];
 
   constructor(private http:HttpClient,
     private toastr: ToastrService,
@@ -25,11 +26,29 @@ export class ArticlesComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetch((data) => {
-    this.rows = data;
+      this.temp = [...data];
+      this.rows = data;
+      this.listCount = this.rows.length;
   });
 
   }
 
+
+
+  updateFilter(event) {
+    const val = event.target.value.toLowerCase();
+
+    // filter our data
+    const temp = this.temp.filter(function (d) {
+      return d.code.toLowerCase().indexOf(val) !== -1  ||
+             d.name.toLowerCase().indexOf(val) !== -1  || !val;
+    });
+
+    // update the rows
+    this.rows = temp;
+    // Whenever the filter changes, always go back to the first page
+    // this.table.offset = 0;
+  }
 
 
   fetch(cb) {
@@ -38,7 +57,7 @@ export class ArticlesComponent implements OnInit {
     .get(`${environment.apiUrl}/api/Configs/GetAllArticle`)
     .subscribe(res => {
       this.response = res;
-      this.listCount = this.fetch.length;
+     
     if(this.response.success==true)
     {
     that.data =this.response.data;
@@ -68,6 +87,7 @@ export class ArticlesComponent implements OnInit {
          this.toastr.error(this.response.message, 'Message.');
          this.fetch((data) => {
           this.rows = data;
+          this.listCount = this.rows.length;
         });
           
         }
@@ -92,6 +112,7 @@ export class ArticlesComponent implements OnInit {
           //  this.date = this.myDate;
            this.fetch((data) => {
             this.rows = data;
+            this.listCount = this.rows.length;
           });
            
   
@@ -111,6 +132,7 @@ export class ArticlesComponent implements OnInit {
           //  this.date = this.myDate;
            this.fetch((data) => {
             this.rows = data;
+            
           });
            
          }
