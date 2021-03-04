@@ -33,31 +33,40 @@
 
 
 
-        <ngx-datatable #myTable class="material" [columns]="columns" [rows]="rows" [columnMode]="'force'" 
+        <ngx-datatable #myTable class="bootstrap" [columns]="columns" [rows]="rows" [columnMode]="'force'" 
         [headerHeight]="50" [footerHeight]="50"
         [rowHeight]="'auto'" [limit]="10">
 
-      <ngx-datatable-column name="S. No." [width]="20" prop="code" > 
+      <ngx-datatable-column name="S. No." [width]="5" prop="code" > 
           <ng-template let-row="row"  ngx-datatable-cell-template>
-            {{row.code}}
+            {{row.id}}
           </ng-template>
         </ngx-datatable-column>
-        <ngx-datatable-column name="Currency" [width]="80">
+        <ngx-datatable-column name="Valid Form" [width]="40">
           <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
-            {{row.name}}
+            {{row.validFrom}}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Currency" [width]="20">
+          <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
+            {{row.currencyCode}}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Rate" [width]="5">
+          <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
+            {{row.rate}}
           </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column name="Details" [width]="80">
           <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
-            {{row.genericName}}
+            {{row.details}}
           </ng-template>
         </ngx-datatable-column>
-        <ngx-datatable-column name="Status" [width]="80">
+        <ngx-datatable-column name=" Updated By" [width]="80">
           <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
-            {{row.address}}
           </ng-template>
         </ngx-datatable-column>
-        <ngx-datatable-column name="Last Updated On" [width]="80">
+        <ngx-datatable-column name=" Updated On" [width]="80">
           <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
             {{myDate | date:'medium'}}
           </ng-template>
@@ -67,7 +76,7 @@
             <button type="button" class="btn editIconBack" (click)="editCurrencyForm(row)">
               <i class="far fa-edit "></i>
             </button>
-            <button type="button" class="btn deleteIconBack" >
+            <button type="button" class="btn deleteIconBack"  (click)="deleteCurrency(row)" >
               <i class="far fa-trash-alt"></i>
             </button>
           </ng-template>

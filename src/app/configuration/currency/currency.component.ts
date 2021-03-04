@@ -35,7 +35,7 @@ export class CurrencyComponent implements OnInit {
   fetch(cb) {
     let that = this;
     that.http
-    .get(`${environment.apiUrl}`)
+    .get(`${environment.apiUrl}/api/Configs/GetAllCurrencyRate`)
     .subscribe(res => {
       this.response = res;
      
@@ -57,29 +57,29 @@ export class CurrencyComponent implements OnInit {
   }
 
 
-  // deleteCurrency(id)
-  // {
-  //   this.http.delete(`${environment.apiUrl}/api/Configs/DeleteBank/`+id.id )
-  //   .subscribe(
-  //     res=> { 
-  //       this.response = res;
-  //       if (this.response.success == true){
-  //        this.toastr.error(this.response.message, 'Message.');
-  //        this.fetch((data) => {
-  //         this.rows = data;
-  //       });
+  deleteCurrency(id)
+  {
+    this.http.delete(`${environment.apiUrl}/api/Configs/DeleteCurrencyRate/`+id.id )
+    .subscribe(
+      res=> { 
+        this.response = res;
+        if (this.response.success == true){
+         this.toastr.error(this.response.message, 'Message.');
+         this.fetch((data) => {
+          this.rows = data;
+        });
           
-  //       }
-  //       else {
-  //         this.toastr.error('Something went Worng', 'Message.');
-  //           }
+        }
+        else {
+          this.toastr.error('Something went Worng', 'Message.');
+            }
  
-  //     }, err => {
-  //       if (err.status == 400) {
-  //         this.toastr.error(this.response.message, 'Message.');
-  //       }
-  //     });
-  // }
+      }, err => {
+        if (err.status == 400) {
+          this.toastr.error(this.response.message, 'Message.');
+        }
+      });
+  }
 
 
 

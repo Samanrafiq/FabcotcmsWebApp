@@ -18,6 +18,7 @@ export class AddBuyerComponent implements OnInit {
   country:any=[];
   buyer:any[];
   countryId:null;
+  parentBuyerId:null;
   @ViewChild(NgForm) buyerForm;
   date: number;
   
@@ -27,12 +28,33 @@ export class AddBuyerComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCountry();
+    this.getParentBuyer();
   }
 
   get activeModal() {
     return this._NgbActiveModal;
   }
 
+
+  getParentBuyer()
+  {
+    this.http.get(`${environment.apiUrl}/api/Lookups/Buyers`)
+    .subscribe(
+      res=> { 
+        this.response = res;
+        if (this.response.success == true){
+          this.country =this.response.data;
+        }
+        else {
+          this.toastr.error('Something went Worng', 'Message.');
+            }
+
+      }, err => {
+        if (err.status == 400) {
+          this.toastr.error('Something went Worng', 'Message.');
+        }
+      });
+  }
 
 
   getCountry()
@@ -66,15 +88,15 @@ export class AddBuyerComponent implements OnInit {
       "buyerName": this.data.buyerName,
       "billingAddress": this.data.buyerBillAddress,
       "deliveryAddress": this.data.buyerDiliveryAddress,
-      "countryId": 1, 
+      "countryId": this.data.countryId, 
       "contactNoPrimary": this.data.buyerContact,
       "contactNoSecondary": this.data.buyerOtherContact,
       "faxNumber": this.data.buyerFax,
       "ntnNumber":this.data.buyerNTN,
       "gstNumber":this.data.buyerGTS,
       "buyerDetails" : this.data.buyerDetails,
-      "isParentBuyer": true,
-      "parentBuyerId":1
+      "isParentBuyer": this.data.isParentBuyer,
+      "parentBuyerId": this.data.parentBuyerId,
     }
 
     this.http.
@@ -99,7 +121,5 @@ export class AddBuyerComponent implements OnInit {
         }
       });
   }
-
-
 
 }
