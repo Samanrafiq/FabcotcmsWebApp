@@ -39,7 +39,7 @@
 
       <ngx-datatable-column name="S. No." [width]="20" prop="code" > 
           <ng-template let-row="row"  ngx-datatable-cell-template>
-            {{row.code}}
+            {{row.id}}
           </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column name="Country Name" [width]="80">
@@ -49,12 +49,12 @@
         </ngx-datatable-column>
         <ngx-datatable-column name="Details" [width]="80">
           <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
-            {{row.genericName}}
+            {{row.details}}
           </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column name="Status" [width]="80">
           <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
-            {{row.address}}
+            {{row.active}}
           </ng-template>
         </ngx-datatable-column>
         <ngx-datatable-column name="Last Updated On" [width]="80">
@@ -67,7 +67,7 @@
             <button type="button" class="btn editIconBack" (click)="editCountryForm(row)">
               <i class="far fa-edit "></i>
             </button>
-            <button type="button" class="btn deleteIconBack" >
+            <button type="button" class="btn deleteIconBack" (click)="deleteCountry(row)" >
               <i class="far fa-trash-alt"></i>
             </button>
           </ng-template>
