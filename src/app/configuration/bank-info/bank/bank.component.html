@@ -72,6 +72,7 @@
               {{row.details}}
             </ng-template>
           </ngx-datatable-column>
+
         <ngx-datatable-column name="Action" [width]="80">
           <ng-template let-row="row" let-expanded="expanded" ngx-datatable-cell-template>
             <button type="button" class="btn editIconBack" (click)="editEditForm(row)">
